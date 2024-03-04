@@ -113,8 +113,8 @@ alias vi='nvim'
 
 # feel free to add stuff to the alias file for example
 # alias proj='cd $(ls -d /mnt/d/projects/* | fzf)'
-if [ ! -f ~/.zsh-dev-alias ]; then
-	source ~/.zsh-dev-alias
+if [ -f ~/.zsh-dev-alias.sh ]; then
+	source ~/.zsh-dev-alias.sh
 fi
 
 export TERM="xterm-256color"
