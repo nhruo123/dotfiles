@@ -110,7 +110,12 @@ bindkey '^[[Z' autosuggest-accept  # shift + tab  | autosuggest
 
 alias vim='nvim'
 alias vi='nvim'
-alias proj='cd $(ls -d /mnt/d/projects/* | fzf)'
+
+# feel free to add stuff to the alias file for example
+# alias proj='cd $(ls -d /mnt/d/projects/* | fzf)'
+if [ ! -f ~/.zsh-dev-alias ]; then
+	source ~/.zsh-dev-alias
+fi
 
 export TERM="xterm-256color"
 [[ -n $TMUX ]] && export TERM="screen-256color"
