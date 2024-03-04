@@ -8,7 +8,7 @@ required programs:
 - fzf
 - neovim ( better to build form sources )
 - tmux
-- fonts
+- fonts i use JetBrainsMono Nerd Font Mono font from https://www.nerdfonts.com/font-downloads
 
 then run install.sh
 feel free to add zsh dev alias
