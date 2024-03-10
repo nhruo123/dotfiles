@@ -117,5 +117,5 @@ if [ -f ~/.zsh-dev-alias.sh ]; then
 	source ~/.zsh-dev-alias.sh
 fi
 
-export TERM="xterm-256color"
-[[ -n $TMUX ]] && export TERM="screen-256color"
+# export TERM="xterm-256color"
+# [[ -n $TMUX ]] && export TERM="screen-256color"
