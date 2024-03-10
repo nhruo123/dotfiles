@@ -1,6 +1,6 @@
 return {
   {
-    -- LSP Configuration & Plugins
+
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for neovim
@@ -49,9 +49,7 @@ return {
           cmd = { 'dotnet', vim.fn.stdpath 'data' .. '/mason/packages/omnisharp/libexec/OmniSharp.dll' },
           enable_import_completion = true,
           enable_roslyn_analyzers = true,
-          root_dir = function()
-            return vim.loop.cwd() -- current working directory
-          end,
+          enable_editorconfig_support = true,
         },
         --
 
@@ -329,5 +327,10 @@ return {
     'ray-x/lsp_signature.nvim',
     event = 'VeryLazy',
     opts = {},
+  },
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^4', -- Recommended
+    ft = { 'rust' },
   },
 }
