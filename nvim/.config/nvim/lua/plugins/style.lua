@@ -15,12 +15,12 @@ return {
           },
           native_lsp = {
             enabled = true,
-            underlines = {
-              errors = { 'undercurl' },
-              hints = { 'undercurl' },
-              warnings = { 'undercurl' },
-              information = { 'undercurl' },
-            },
+            -- underlines = {
+            --   errors = { 'undercurl' },
+            --   hints = { 'undercurl' },
+            --   warnings = { 'undercurl' },
+            --   information = { 'undercurl' },
+            -- },
             inlay_hints = {
               background = true,
             },
