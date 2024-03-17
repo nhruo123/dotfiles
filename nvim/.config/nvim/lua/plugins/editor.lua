@@ -61,7 +61,9 @@ return {
         ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
         ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
         ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
+        ['<leader>f'] = { name = '[F]ind and replace', _ = 'which_key_ignore' },
         ['<leader>x'] = { name = 'Diagnostics', _ = 'which_key_ignore' },
+        ['<leader>b'] = { name = '[B]ufffer', _ = 'which_key_ignore' },
       }
     end,
   },

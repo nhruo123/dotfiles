@@ -17,7 +17,7 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz')
 
 -- buffers
 vim.keymap.set('n', '<leader>bp', '<c-6>', { desc = 'Previous buffer' })
-vim.keymap.set('n', '<leader>bn', '<cmd>new<cr>', { desc = 'New buffer' })
+vim.keymap.set('n', '<leader>bn', '<cmd>enew<cr>', { desc = 'New buffer' })
 vim.keymap.set('n', '<leader>q', '<cmd>bd<cr>', { desc = 'quit buffer' })
 vim.keymap.set('n', '<leader>w', '<cmd>w<cr>', { desc = 'write buffer' })
 
