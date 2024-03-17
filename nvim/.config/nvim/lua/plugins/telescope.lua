@@ -78,6 +78,7 @@ return {
       vim.keymap.set('n', '<leader>st', '<cmd>:TodoTelescope<cr>', { desc = '[S]earch Todo' })
       vim.keymap.set('n', '<leader>s/', builtin.live_grep, { desc = '[S]earch [/] in Open Files' })
       vim.keymap.set('n', '<leader>:', builtin.commands, { desc = '[:] commands' })
+      vim.keymap.set('n', '<leader>f', builtin.commands, { desc = '[F]ind and replace' })
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })

@@ -44,6 +44,15 @@ return {
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
         tsserver = {},
+        svelte = {
+          capabilities = {
+            workspace = {
+              didChangeWatchedFiles = {
+                dynamicRegistration = true,
+              },
+            },
+          },
+        },
         cspell = {},
         omnisharp = {
           cmd = { 'dotnet', vim.fn.stdpath 'data' .. '/mason/packages/omnisharp/libexec/OmniSharp.dll' },

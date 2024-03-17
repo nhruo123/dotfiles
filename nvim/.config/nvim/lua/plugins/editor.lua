@@ -83,4 +83,12 @@ return {
       require('leap').create_default_mappings()
     end,
   },
+  {
+    'nvim-pack/nvim-spectre',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    opts = {},
+    keys = { { '<leader>fr', '<cmd>lua require("spectre").toggle()<CR>', desc = '[F]ind and [R]place' } },
+  },
 }
