@@ -24,3 +24,6 @@ https://vonheikemen.github.io/devlog/tools/how-to-survive-without-multiple-curso
 https://github.com/iamcco/markdown-preview.nvim
 https://github.com/mbbill/undotree
 https://github.com/rockerBOO/awesome-neovim?tab=readme-ov-file#lsp
+
+when nvim 0.10 drops:
+https://dotfyle.com/plugins/theHamsta/nvim-dap-virtual-text
