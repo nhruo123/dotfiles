@@ -31,7 +31,8 @@ vim.keymap.set('n', '<leader>th', '<cmd>tabprevious<cr>', { desc = 'Previous Tab
 
 -- delete without overwriting clipboard
 vim.keymap.set({ 'n', 'x' }, '<leader>d', '"_d', { desc = 'delete without overwriting clipboard' })
-vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'paste without overwriting clipboard' })
+vim.keymap.set('x', '<leader>p', '"_dp', { desc = 'paste forwards without overwriting clipboard' })
+vim.keymap.set('x', '<leader>P', '"_dP', { desc = 'paste backwards without overwriting clipboard' })
 
 vim.keymap.set('n', '[d', function() end, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', function()
