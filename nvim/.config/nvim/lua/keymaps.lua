@@ -38,6 +38,18 @@ vim.keymap.set('n', ']d', function()
   vim.diagnostic.goto_next { severity = { min = vim.diagnostic.severity.WARN } }
 end, { desc = 'Go to next [D]iagnostic message' })
 
+vim.keymap.set('n', '<leader>l;', function()
+  local namespaces = {}
+  local current_index = 1
+  for namespace, ns in pairs(vim.diagnostic.get_namespaces()) do
+    if ns.name ~= 'NULL_LS_SOURCE_2' then
+      namespaces[current_index] = namespace
+      current_index = current_index + 1
+    end
+  end
+  vim.diagnostic.goto_next { namespace = namespaces }
+end, { desc = 'Go to next [D]iagnostic message' })
+
 vim.keymap.set('n', '<leader>f', vim.diagnostic.open_float, { desc = 'Diagnostic Open [F]loat' })
 
 vim.keymap.set('n', ']t', function()
