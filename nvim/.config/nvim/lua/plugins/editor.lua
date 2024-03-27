@@ -63,6 +63,7 @@ return {
         ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
         ['<leader>x'] = { name = 'Diagnostics', _ = 'which_key_ignore' },
         ['<leader>b'] = { name = '[B]ufffer', _ = 'which_key_ignore' },
+        ['<leader>j'] = { name = '[J]ump List', _ = 'which_key_ignore' },
       }
     end,
   },
