@@ -280,12 +280,6 @@ require('lazy').setup({
     },
     dependencies = { 'nvim-tree/nvim-web-devicons' },
   },
-  {
-    'petertriho/nvim-scrollbar',
-    config = function()
-      require('scrollbar').setup {}
-    end,
-  },
   { import = 'plugins' },
 }, {})
 
