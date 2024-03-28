@@ -153,14 +153,6 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
         callback = function(event)
-          require('lsp_signature').on_attach({
-            bind = true, -- This is mandatory, otherwise border config won't get registered.
-            hint_enable = false,
-            handler_opts = {
-              border = 'rounded',
-            },
-          }, event.buf)
-
           -- NOTE: Remember that lua is a real programming language, and as such it is possible
           -- to define small helper and utility functions so you don't have to repeat yourself
           -- many times.
@@ -207,14 +199,9 @@ return {
 
           -- Opens a popup that displays documentation about the word under your cursor
           --  See `:help K` for why this keymap
-          map('K', function()
-            require('lsp_signature').toggle_float_win()
-          end, 'Hover Documentation')
+          map('K', vim.lsp.buf.hover, 'LSP Hover')
+          map('<c-k>', vim.lsp.buf.signature_help , 'Signature help', 'i')
 
-          -- TODO: fix signature_help i can't make it work like vscode I want to have both sig and suggestion open and i want to be abble to toogle them as I type
-          -- map('<C-k>', function()
-          --   vim.lsp.buf.signature_help()
-          -- end, 'Hover Documentation', { 'n', 'i' })
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -333,11 +320,6 @@ return {
         },
       }
     end,
-  },
-  {
-    'ray-x/lsp_signature.nvim',
-    event = 'VeryLazy',
-    opts = {},
   },
   {
     'mrcjkb/rustaceanvim',
