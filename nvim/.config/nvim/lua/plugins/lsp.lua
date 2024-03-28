@@ -200,7 +200,7 @@ return {
           -- Opens a popup that displays documentation about the word under your cursor
           --  See `:help K` for why this keymap
           map('K', vim.lsp.buf.hover, 'LSP Hover')
-          map('<c-k>', vim.lsp.buf.signature_help , 'Signature help', 'i')
+          map('<c-k>', vim.lsp.buf.signature_help, 'Signature help', 'i')
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header
@@ -233,6 +233,7 @@ return {
     event = 'InsertEnter',
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
+      'onsails/lspkind.nvim',
       {
         'L3MON4D3/LuaSnip',
         build = (function()
@@ -264,6 +265,7 @@ return {
       -- See `:help cmp`
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
+      local lspkind = require 'lspkind'
       luasnip.config.setup {}
       cmp.setup {
         -- preselect = cmp.PreselectMode.None
@@ -271,6 +273,18 @@ return {
           expand = function(args)
             luasnip.lsp_expand(args.body)
           end,
+        },
+        formatting = {
+          format = lspkind.cmp_format {
+            mode = 'symbol_text',
+            menu = {
+              buffer = '[Buffer]',
+              nvim_lsp = '[LSP]',
+              luasnip = '[LuaSnip]',
+              nvim_lua = '[Lua]',
+              latex_symbols = '[Latex]',
+            },
+          },
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
 
