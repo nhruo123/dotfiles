@@ -14,6 +14,7 @@ return {
     -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
 
+    'nvim-neotest/nvim-nio',
     -- Installs the debug adapters for you
     'williamboman/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
@@ -109,7 +110,7 @@ return {
       port = '${port}',
       executable = {
         -- CHANGE THIS to your path!
-        command = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/") .. 'packages/codelldb/codelldb',
+        command = vim.fn.glob(vim.fn.stdpath 'data' .. '/mason/') .. 'packages/codelldb/codelldb',
         args = { '--port', '${port}' },
 
         -- On windows you may have to uncomment this:
