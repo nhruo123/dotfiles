@@ -8,6 +8,14 @@ size = 14
 [env]
 TERM  = "xterm-256color"
 
+[selection]
+save_to_clipboard = true
+
+[keyboard]
+bindings = [
+    {key = "V", mods = "Control", action = "Paste"}
+] 
+
 [font.bold]
 family = "JetBrainsMono Nerd Font Mono"
 style = "Bold"
