@@ -1,4 +1,4 @@
--- search highlight
+-- search highligh
 vim.keymap.set('i', '<C-c>', '<cmd>ehco "USE Ctrl+[ to leave insert mode!!!"<CR>', { desc = 'no serach highlight' })
 -- search highlight
 vim.keymap.set('n', '<C-c>', '<C-c><cmd>nohlsearch<CR>', { desc = 'no serach highlight' })
@@ -33,9 +33,38 @@ vim.keymap.set('n', '<leader>th', '<cmd>tabprevious<cr>', { desc = 'Previous Tab
 vim.keymap.set({ 'n', 'x' }, '<leader>d', '"_d', { desc = 'delete without overwriting clipboard' })
 vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'paste without overwriting clipboard' })
 
-vim.keymap.set('n', '[d', function() end, { desc = 'Go to previous [D]iagnostic message' })
+vim.keymap.set('n', '[d', function()
+  vim.diagnostic.goto_prev { severity = { min = vim.diagnostic.severity.WARN } }
+end, { desc = 'Go to previous [D]iagnostic message' })
+
 vim.keymap.set('n', ']d', function()
   vim.diagnostic.goto_next { severity = { min = vim.diagnostic.severity.WARN } }
+end, { desc = 'Go to next [D]iagnostic message' })
+
+vim.keymap.set('n', '[z', function()
+  -- TODO: cache this mb in spell.lua?
+  local null = require("null-ls");
+  local d_null = require("null-ls.diagnostics");
+  local namespace = nil;
+  -- TODO: wait for patch to add all the namespaces
+  for v,k in pairs(null.get_sources()) do
+    namespace = d_null.get_namespace(k.id);
+  end
+
+  vim.diagnostic.goto_prev { severity = { namespace = namespace } }
+end, { desc = 'Go to previous [D]iagnostic message' })
+
+vim.keymap.set('n', ']z', function()
+  -- TODO: cache this mb in spell.lua?
+  local null = require("null-ls");
+  local d_null = require("null-ls.diagnostics");
+  local namespace = nil;
+  -- TODO: wait for patch to add all the namespaces
+  for v,k in pairs(null.get_sources()) do
+    namespace = d_null.get_namespace(k.id);
+  end
+
+  vim.diagnostic.goto_next { severity = { namespace = namespace } }
 end, { desc = 'Go to next [D]iagnostic message' })
 
 vim.keymap.set('n', '<leader>f', vim.diagnostic.open_float, { desc = 'Diagnostic Open [F]loat' })
