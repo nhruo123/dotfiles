@@ -51,7 +51,7 @@ vim.keymap.set('n', '[z', function()
     namespace = d_null.get_namespace(k.id);
   end
 
-  vim.diagnostic.goto_prev { severity = { namespace = namespace } }
+  vim.diagnostic.goto_prev {  namespace = namespace  }
 end, { desc = 'Go to previous [D]iagnostic message' })
 
 vim.keymap.set('n', ']z', function()
@@ -64,7 +64,7 @@ vim.keymap.set('n', ']z', function()
     namespace = d_null.get_namespace(k.id);
   end
 
-  vim.diagnostic.goto_next { severity = { namespace = namespace } }
+  vim.diagnostic.goto_next {  namespace = namespace  }
 end, { desc = 'Go to next [D]iagnostic message' })
 
 vim.keymap.set('n', '<leader>f', vim.diagnostic.open_float, { desc = 'Diagnostic Open [F]loat' })
