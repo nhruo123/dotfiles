@@ -36,7 +36,15 @@ return {
         -- clangd = {},
         -- gopls = {},
         pyright = {},
-        rust_analyzer = {},
+        rust_analyzer = {
+          settings = {
+            ['rust-analyzer'] = {
+              check = {
+                command = 'clippy',
+              },
+            },
+          },
+        },
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -55,10 +63,12 @@ return {
         },
         cspell = {},
         omnisharp = {
-          cmd = { 'dotnet', vim.fn.stdpath 'data' .. '/mason/packages/omnisharp/libexec/OmniSharp.dll' },
-          enable_import_completion = true,
-          enable_roslyn_analyzers = true,
-          enable_editorconfig_support = true,
+          settings = {
+            cmd = { 'dotnet', vim.fn.stdpath 'data' .. '/mason/packages/omnisharp/libexec/OmniSharp.dll' },
+            enable_import_completion = true,
+            enable_roslyn_analyzers = true,
+            enable_editorconfig_support = true,
+          },
         },
         --
 
