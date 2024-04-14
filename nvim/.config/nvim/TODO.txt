@@ -25,5 +25,10 @@ https://github.com/iamcco/markdown-preview.nvim
 https://github.com/mbbill/undotree
 https://github.com/rockerBOO/awesome-neovim?tab=readme-ov-file#lsp
 
-when nvim 0.10 drops:
-https://dotfyle.com/plugins/theHamsta/nvim-dap-virtual-text
+when nvim 0.10 drops (30/4/24):
+- https://dotfyle.com/plugins/theHamsta/nvim-dap-virtual-text
+- inlayHints for rust VERY IMPORTNET 
+
+
+quick fix list, jump list, location list
+
