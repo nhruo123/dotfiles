@@ -110,7 +110,6 @@ bindkey '^[[Z' autosuggest-accept  # shift + tab  | autosuggest
 
 alias vim='nvim'
 alias vi='nvim'
-alias python=python3
 source "$HOME/.cargo/env"
 # feel free to add stuff to the alias file for example
 # alias proj='cd $(ls -d /mnt/d/projects/* | fzf)'
