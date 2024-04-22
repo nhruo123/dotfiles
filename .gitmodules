@@ -1,3 +1,6 @@
 [submodule "alacritty/.config/alacritty/alacritty"]
 	path = alacritty/.config/alacritty/alacritty
 	url = https://github.com/catppuccin/alacritty.git
+[submodule "yazi/.config/yazi/flavors"]
+	path = yazi/.config/yazi/flavors
+	url = https://github.com/yazi-rs/flavors.git

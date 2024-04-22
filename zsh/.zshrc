@@ -111,6 +111,7 @@ bindkey '^[[Z' autosuggest-accept  # shift + tab  | autosuggest
 alias vim='nvim'
 alias vi='nvim'
 source "$HOME/.cargo/env"
+alias yy='yazi'
 # feel free to add stuff to the alias file for example
 # alias proj='cd $(ls -d /mnt/d/projects/* | fzf)'
 if [ -f ~/.zsh-dev-alias.sh ]; then
