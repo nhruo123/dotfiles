@@ -29,3 +29,7 @@ when nvim 0.10 drops (30/4/24):
 quick fix list, jump list, location list
 https://github.com/mfussenegger/nvim-dap/issues/101
 nvim-ufo
+
+
+intlijy refactor
+spell checker rename refactor
