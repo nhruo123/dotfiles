@@ -16,7 +16,6 @@ spell error only diagnostic this is hell get back
 
 OIL? 
 hide func sig
-marks? hapon?
 File rename broke c# lsp? neet to find why
 https://github.com/mg979/vim-visual-multi
 https://vonheikemen.github.io/devlog/tools/how-to-survive-without-multiple-cursors-in-vim/
@@ -31,4 +30,4 @@ when nvim 0.10 drops (30/4/24):
 
 
 quick fix list, jump list, location list
-
+nvim-ufo

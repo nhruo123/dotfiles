@@ -111,6 +111,9 @@ return {
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format lua code
         'black',
+        'isort',
+        'pylint',
+        'mypy',
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }

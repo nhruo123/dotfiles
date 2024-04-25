@@ -67,6 +67,7 @@ vim.opt.scrolloff = 10
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 
+
 local icons = require 'utils/icons'
 local signs = {
   { name = 'DiagnosticSignError', text = icons.diagnostics.Error },
@@ -139,7 +140,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        python = { 'black' },
+        python = { 'black', 'isort', 'pylint'},
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
