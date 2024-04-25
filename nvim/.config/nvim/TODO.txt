@@ -35,6 +35,7 @@ venv selector bug?
 
 test vim spell with cammlecase support
 
+cherry pick Neogit https://github.com/NeogitOrg/neogit
 
 intellij refactor
 spell checker rename refactor
