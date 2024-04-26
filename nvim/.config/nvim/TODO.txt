@@ -1,17 +1,14 @@
-1) Fix spell-checker line looking like ass and not spell checking in lang tokens better keybindings for spell check mb z.
-7) look at Yuval's config
 9) error list, warning list etc..
 10) learn find & replace
 13) jump to the in help
+14) working with git installed plugins now need to learn to use
 
-working with git installed plugins now need to learn to use
 spell error only diagnostic this is hell get back
 
 
 https://github.com/mg979/vim-visual-multi
 https://vonheikemen.github.io/devlog/tools/how-to-survive-without-multiple-cursors-in-vim/
 
-https://github.com/iamcco/markdown-preview.nvim
 https://github.com/rockerBOO/awesome-neovim?tab=readme-ov-file#lsp
 
 when nvim 0.10 drops (30/4/24):
@@ -23,7 +20,6 @@ quick fix list, jump list, location list
 
 https://github.com/mfussenegger/nvim-dap/issues/100
 https://github.com/ThePrimeagen/refactoring.nvim
-nvim-ufo
 lsp saga?
 
 venv selector bug?

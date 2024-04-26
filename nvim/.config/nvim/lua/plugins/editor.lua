@@ -3,7 +3,7 @@ return {
   { 'tpope/vim-sleuth' }, -- Detect tabstop and shiftwidth automatically
 
   -- TODO: fix indent level not following tabs
-  { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = { indent = { char = '┆' } } },
+  { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = { indent = { char = '│' } } },
   { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
