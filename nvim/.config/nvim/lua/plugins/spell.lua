@@ -20,6 +20,7 @@ return {
             diagnostic_config = {
               virtual_text = false,
               signs = false,
+              virtual_lines = false,
             },
             diagnostics_postprocess = function(diagnostic)
               diagnostic.severity = vim.diagnostic.severity.HINT
