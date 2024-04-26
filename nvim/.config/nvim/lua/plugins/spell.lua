@@ -8,10 +8,14 @@ return {
     config = function()
       local null_ls = require 'null-ls'
       local c_spell = require 'cspell'
+      local config = {}
       null_ls.setup {
         sources = {
-          c_spell.code_actions,
+          c_spell.code_actions.with {
+            config = config,
+          },
           c_spell.diagnostics.with {
+            config = config,
             -- Force the severity to be HINT
             diagnostic_config = {
               virtual_text = false,
