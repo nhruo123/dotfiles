@@ -29,7 +29,7 @@ test vim spell with cammlecase support
 cherry pick Neogit https://github.com/NeogitOrg/neogit ( think its from ref log then you do AA)
 
 intellij refactor
-spell checker rename refactor
-
 
 auto pair and nvim-cmp not working with .
+
+https://github.com/search?q=repo%3Aaskfiy%2FSimpleNvim+spell&type=code

@@ -26,6 +26,24 @@ return {
       { 'nvim-tree/nvim-web-devicons' },
     },
     config = function()
+      -- local function filenameFirst(_, path)
+      --   local tail = vim.fs.basename(path)
+      --   local parent = vim.fs.dirname(path)
+      --   if parent == '.' then
+      --     return tail
+      --   end
+      --   return string.format('%s\t\t%s', tail, parent)
+      -- end
+      --
+      -- vim.api.nvim_create_autocmd('FileType', {
+      --   pattern = 'TelescopeResults',
+      --   callback = function(ctx)
+      --     vim.api.nvim_buf_call(ctx.buf, function()
+      --       vim.fn.matchadd('TelescopeParent', '\t\t.*$')
+      --       vim.api.nvim_set_hl(0, 'TelescopeParent', { link = 'Comment' })
+      --     end)
+      --   end,
+      -- })
       -- Telescope is a fuzzy finder that comes with a lot of different things that
       -- it can fuzzy find! It's more than just a "file finder", it can search
       -- many different aspects of Neovim, your workspace, LSP, and more!
@@ -62,6 +80,17 @@ return {
             require('telescope.themes').get_dropdown(),
           },
         },
+        pickers = {
+          -- find_files = {
+          --   path_display = filenameFirst,
+          -- },
+          -- git_files = {
+          --   path_display = filenameFirst,
+          -- },
+          -- oldfiles = {
+          --   path_display = filenameFirst,
+          -- },
+        },
       }
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
@@ -73,7 +102,9 @@ return {
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Find existing buffers' })
       vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = '[/] Fuzzily search in current buffer' })
-      vim.keymap.set('n', '<leader>so', function () builtin.oldfiles({only_cwd = true}) end, { desc = '[S]earch cwd [O]ld Files' })
+      vim.keymap.set('n', '<leader>so', function()
+        builtin.oldfiles { only_cwd = true }
+      end, { desc = '[S]earch cwd [O]ld Files' })
       vim.keymap.set('n', '<leader>sO', builtin.oldfiles, { desc = '[S]earch all [O]ld Files' })
       vim.keymap.set('n', '<leader>st', '<cmd>:TodoTelescope<cr>', { desc = '[S]earch Todo' })
       vim.keymap.set('n', '<leader>s/', builtin.live_grep, { desc = '[S]earch [/] in Open Files' })
