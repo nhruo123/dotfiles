@@ -1,6 +1,3 @@
--- TODO: add support to undo latest word added and support keybinds
--- also make wavey underline and less noisy error
--- make sure diagnostic isn't so bad
 return {
   { 'davidmh/cspell.nvim' },
   {
@@ -8,7 +5,26 @@ return {
     config = function()
       local null_ls = require 'null-ls'
       local c_spell = require 'cspell'
-      local config = {}
+
+      local spell_dir = vim.fn.stdpath 'config' .. '/spell'
+
+      local config = {
+        find_json = function()
+          return spell_dir .. '/cspell.json'
+        end,
+
+        decode_json = function(content)
+          local result = vim.json.decode(content)
+
+          ---@diagnostic disable-next-line: undefined-field
+          for _, entry in ipairs(result.dictionaryDefinitions) do
+            entry.path = spell_dir .. '/' .. entry.path
+          end
+
+          return result
+        end,
+      }
+
       null_ls.setup {
         sources = {
           c_spell.code_actions.with {
