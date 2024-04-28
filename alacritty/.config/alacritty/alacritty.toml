@@ -13,7 +13,10 @@ save_to_clipboard = true
 
 [keyboard]
 bindings = [
-    {key = "V", mods = "Control", action = "Paste"}
+    {key = "V", mods = "Control", action = "Paste"},
+    {key = "=", mods = "Control", action = "IncreaseFontSize"},
+    {key = "-", mods = "Control", action = "DecreaseFontSize"},
+    {key = "0", mods = "Control", action = "ResetFontSize"}
 ] 
 
 [font.bold]
