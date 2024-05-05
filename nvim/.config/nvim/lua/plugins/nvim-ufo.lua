@@ -50,7 +50,7 @@ return {
     require('ufo').setup {
       fold_virt_text_handler = handler,
       provider_selector = function(bufnr, filetype, buftype)
-        if string.find(filetype, 'Neogit') ~= nil or filetype == 'DiffviewFiles' then
+        if string.find(filetype, 'Neogit') ~= nil or string.find(filetype, 'DAP') or filetype == 'DiffviewFiles' then
           return ''
         end
         return nil
