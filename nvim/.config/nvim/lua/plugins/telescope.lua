@@ -72,6 +72,8 @@ return {
         defaults = {
           mappings = {
             -- i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+            i = { ["<C-s>"] = require("telescope.actions").select_horizontal },
+            n = { ["<C-s>"] = require("telescope.actions").select_horizontal },
           },
         },
         -- pickers = {}

@@ -162,11 +162,11 @@ require('lazy').setup({
       --  - ci'  - [C]hange [I]nside [']quote
       require('mini.ai').setup { n_lines = 500 }
 
-      require('mini.files').setup()
-      vim.keymap.set('n', '<leader>e', function()
-        require('mini.files').open(vim.api.nvim_buf_get_name(0))
-      end, { desc = 'Open File Tree Relative To File' })
-      vim.keymap.set('n', '<leader>E', require('mini.files').open, { desc = 'Open File Tree In cwd' })
+      -- require('mini.files').setup()
+      -- vim.keymap.set('n', '<leader>e', function()
+      --   require('mini.files').open(vim.api.nvim_buf_get_name(0))
+      -- end, { desc = 'Open File Tree Relative To File' })
+      -- vim.keymap.set('n', '<leader>E', require('mini.files').open, { desc = 'Open File Tree In cwd' })
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
