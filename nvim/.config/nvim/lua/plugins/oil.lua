@@ -4,9 +4,10 @@ return {
     local oil = require 'oil'
     oil.setup {
       default_file_explorer = true,
-      keymaps = {
-        ['C-s'] = 'actions.select_split',
-        ['C-v'] = 'actions.select_vslit',
+      keymaps = { 
+        ["<C-h>"] = false,
+        ['<C-s>'] = 'actions.select_split',
+        ['<C-v>'] = 'actions.select_vsplit',
       },
       view_options = {
         show_hidden = true,
