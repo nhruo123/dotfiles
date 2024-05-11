@@ -64,6 +64,7 @@ return {
         ['<leader>x'] = { name = 'Diagnostics', _ = 'which_key_ignore' },
         ['<leader>b'] = { name = '[B]ufffer', _ = 'which_key_ignore' },
         ['<leader>j'] = { name = '[J]ump List', _ = 'which_key_ignore' },
+        ['<leader>b'] = { name = 'De[B]ug', _ = 'which_key_ignore' },
       }
     end,
   },

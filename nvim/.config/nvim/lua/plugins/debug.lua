@@ -49,43 +49,41 @@ return {
 
     -- Basic debugging keymaps, feel free to change to your liking!
     vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
-    vim.keymap.set('n', '<F11>', dap.step_into, { desc = 'Debug: Step Into' })
-    vim.keymap.set('n', '<F10>', dap.step_over, { desc = 'Debug: Step Over' })
-    vim.keymap.set('n', '<F11>', dap.step_out, { desc = 'Debug: Step Out' })
-    vim.keymap.set('n', '<F9>', dap.toggle_breakpoint, { desc = 'Debug: Toggle Breakpoint' })
-    vim.keymap.set('n', '<leader><F9>', function()
-      dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
-    end, { desc = 'Debug: Set Breakpoint' })
-    vim.keymap.set('n', '<Leader>rc', function()
-      require('dap').repl.open()
-    end, { desc = 'Debugger Console' })
-    vim.keymap.set('n', '<Leader>rl', function()
-      require('dap').run_last()
-    end)
-    vim.keymap.set({ 'n', 'v' }, '<Leader>rh', function()
-      require('dap.ui.widgets').hover()
-    end, { desc = 'Debugger Hover' })
-    vim.keymap.set({ 'n', 'v' }, '<Leader>rp', function()
-      require('dap.ui.widgets').preview()
-    end, { desc = { desc = 'debugger preview' } })
-    vim.keymap.set('n', '<Leader>rf', function()
-      local widgets = require 'dap.ui.widgets'
-      widgets.centered_float(widgets.frames)
-    end)
-    vim.keymap.set('n', '<Leader>rs', function()
-      local widgets = require 'dap.ui.widgets'
-      widgets.centered_float(widgets.scopes)
-    end)
-    vim.keymap.set('n', '<Leader>rr', function()
-      require('dapui').open { reset = true }
-    end)
+    vim.keymap.set('n', '<F1>', dap.step_back, { desc = 'Debug: Step Back' })
+    vim.keymap.set('n', '<F2>', dap.step_into, { desc = 'Debug: Step Into' })
+    vim.keymap.set('n', '<F3>', dap.step_over, { desc = 'Debug: Step Over' })
+    vim.keymap.set('n', '<F4>', dap.step_out, { desc = 'Debug: Step Out' })
 
+    vim.keymap.set('n', '<leader>br', dap.repl.open, { desc = 'open repl' })
+
+    vim.keymap.set('n', '<leader>bb', dap.toggle_breakpoint, { desc = 'Toggle Breakpoint' })
+    vim.keymap.set('n', '<leader>bB', function()
+      dap.set_breakpoint(vim.fn.input 'breakpoint condition: ')
+    end, { desc = 'Toggle Breakpoint' })
+
+    vim.keymap.set('n', '<Leader>bl', function()
+      require('dap').run_last()
+    end, { desc = 'run last config' })
+
+    vim.keymap.set('n', '<leader>be', dapui.eval, { desc = 'eval' })
+    vim.keymap.set('n', '<leader>bE', function()
+      dapui.eval(vim.fn.input '[DAP] Expression > ')
+    end, { desc = 'Eval with expression' })
+
+    vim.keymap.set({ 'n', 'v' }, '<Leader>bh', function()
+      require('dap.ui.widgets').hover()
+    end, { desc = 'Hover' })
+    vim.keymap.set('n', '<Leader>br', function()
+      dapui.close()
+      dapui.open { reset = true }
+    end, { desc = 'reset ui' })
+
+    vim.keymap.set('n', '<Leader>bt', function()
+      dapui.toggle()
+    end, { desc = 'toggle ui' })
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
-    dapui.setup()
-
-    -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-    vim.keymap.set('n', '<F7>', dapui.toggle, { desc = 'Debug: See last session result.' })
+    dapui.setup {}
 
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close

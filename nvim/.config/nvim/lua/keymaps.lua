@@ -16,8 +16,6 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 
 -- buffers
-vim.keymap.set('n', '<leader>bp', '<c-6>', { desc = 'Previous buffer' })
-vim.keymap.set('n', '<leader>bn', '<cmd>enew<cr>', { desc = 'New buffer' })
 vim.keymap.set('n', '<leader>q', '<cmd>bd<cr>', { desc = 'quit buffer' })
 vim.keymap.set('n', '<leader>w', '<cmd>w<cr>', { desc = 'write buffer' })
 
@@ -43,28 +41,28 @@ end, { desc = 'Go to next [D]iagnostic message' })
 
 vim.keymap.set('n', '[z', function()
   -- TODO: cache this mb in spell.lua?
-  local null = require("null-ls");
-  local d_null = require("null-ls.diagnostics");
-  local namespace = nil;
+  local null = require 'null-ls'
+  local d_null = require 'null-ls.diagnostics'
+  local namespace = nil
   -- TODO: wait for patch to add all the namespaces
-  for v,k in pairs(null.get_sources()) do
-    namespace = d_null.get_namespace(k.id);
+  for v, k in pairs(null.get_sources()) do
+    namespace = d_null.get_namespace(k.id)
   end
 
-  vim.diagnostic.goto_prev {  namespace = namespace  }
+  vim.diagnostic.goto_prev { namespace = namespace }
 end, { desc = 'Go to previous [D]iagnostic message' })
 
 vim.keymap.set('n', ']z', function()
   -- TODO: cache this mb in spell.lua?
-  local null = require("null-ls");
-  local d_null = require("null-ls.diagnostics");
-  local namespace = nil;
+  local null = require 'null-ls'
+  local d_null = require 'null-ls.diagnostics'
+  local namespace = nil
   -- TODO: wait for patch to add all the namespaces
-  for v,k in pairs(null.get_sources()) do
-    namespace = d_null.get_namespace(k.id);
+  for v, k in pairs(null.get_sources()) do
+    namespace = d_null.get_namespace(k.id)
   end
 
-  vim.diagnostic.goto_next {  namespace = namespace  }
+  vim.diagnostic.goto_next { namespace = namespace }
 end, { desc = 'Go to next [D]iagnostic message' })
 
 vim.keymap.set('n', '<leader>f', vim.diagnostic.open_float, { desc = 'Diagnostic Open [F]loat' })
