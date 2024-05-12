@@ -33,3 +33,7 @@ intellij refactor
 auto pair and nvim-cmp not working with .
 
 https://github.com/search?q=repo%3Aaskfiy%2FSimpleNvim+spell&type=code
+
+
+
+NEOGIT TELESCOPE AND :e call after edits

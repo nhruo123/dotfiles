@@ -35,8 +35,8 @@ return {
     config = function()
       require('neogit').setup {
         integrations = {
-          telescope = true,
           diffview = true,
+          telescope = true,
         },
       }
     end,
