@@ -8,7 +8,7 @@ return {
       {
         '<leader>ja',
         function()
-          require('harpoon'):list():append()
+          require('harpoon'):list():add()
         end,
         desc = '[J]ump list [A]dd',
       },
@@ -60,6 +60,13 @@ return {
           require('harpoon'):list():select(4)
         end,
         desc = 'Harpoon select 4',
+      },
+      {
+        '<leader>5',
+        function()
+          require('harpoon'):list():select(5)
+        end,
+        desc = 'Harpoon select 5',
       },
 
       {
