@@ -14,9 +14,13 @@ return {
       },
     }
 
-    vim.keymap.set('n', '<leader>E', oil.open_float, { desc = 'Open File Tree In cwd' })
+    -- vim.keymap.set('n', '<leader>E', oil.open, { desc = 'Open File Tree In cwd' })
+    -- vim.keymap.set('n', '<leader>e', function()
+    --   oil.open(oil.get_current_dir())
+    -- end, { desc = 'Open File Tree In cwd' })
+    vim.keymap.set('n', '<leader>E', oil.open, { desc = 'Open File Tree In cwd' })
     vim.keymap.set('n', '<leader>e', function()
-      oil.open_float(oil.get_current_dir())
+      oil.open(oil.get_current_dir())
     end, { desc = 'Open File Tree In cwd' })
   end,
   -- Optional dependencies
