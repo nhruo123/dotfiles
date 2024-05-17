@@ -18,6 +18,7 @@ return {
     -- Installs the debug adapters for you
     'williamboman/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
+    -- 'theHamsta/nvim-dap-virtual-text',
 
     -- Add your own debuggers here
     -- 'leoluz/nvim-dap-go',
@@ -26,6 +27,7 @@ return {
   config = function()
     local dap = require 'dap'
     local dapui = require 'dapui'
+    -- require("nvim-dap-virtual-text").setup()
 
     ---@diagnostic disable-next-line: missing-fields
     require('mason-nvim-dap').setup {

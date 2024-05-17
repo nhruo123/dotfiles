@@ -206,6 +206,10 @@ return {
           --  Most Language Servers support renaming across files, etc.
           map('<leader>cr', vim.lsp.buf.rename, '[C]ode [R]name')
 
+          map('<leader>ci', function()
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+          end, '[C]ode Toggle [I]lay')
+
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'v' })
@@ -236,6 +240,9 @@ return {
               callback = vim.lsp.buf.clear_references,
             })
           end
+
+
+          vim.lsp.inlay_hint.enable(true)
         end,
       })
     end,
