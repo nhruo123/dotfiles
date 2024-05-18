@@ -7,27 +7,27 @@
 -- kickstart.nvim and not kitchen-sink.nvim ;)
 
 return {
-  -- NOTE: Yes, you can install new plugins here!
   'mfussenegger/nvim-dap',
-  -- NOTE: And you can specify dependencies as well
   dependencies = {
-    -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
 
     'nvim-neotest/nvim-nio',
-    -- Installs the debug adapters for you
+
     'williamboman/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
-    -- 'theHamsta/nvim-dap-virtual-text',
+    'theHamsta/nvim-dap-virtual-text',
 
-    -- Add your own debuggers here
-    -- 'leoluz/nvim-dap-go',
     'mfussenegger/nvim-dap-python',
   },
   config = function()
     local dap = require 'dap'
     local dapui = require 'dapui'
-    -- require("nvim-dap-virtual-text").setup()
+
+    dapui.setup()
+
+    require('nvim-dap-virtual-text').setup()
+    require('dap.ext.vscode').load_launchjs(nil, { cppdbg = { 'c', 'cpp' } })
+    require('dap-python').setup '~/.virtualenvs/debugpy/bin/python'
 
     ---@diagnostic disable-next-line: missing-fields
     require('mason-nvim-dap').setup {
@@ -80,12 +80,11 @@ return {
       dapui.open { reset = true }
     end, { desc = 'reset ui' })
 
+    vim.keymap.set('n', '<leader>bc', dap.run_to_cursor, { desc = 'Run to cursor' })
+
     vim.keymap.set('n', '<Leader>bt', function()
       dapui.toggle()
     end, { desc = 'toggle ui' })
-    -- Dap UI setup
-    -- For more information, see |:help nvim-dap-ui|
-    dapui.setup {}
 
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
@@ -117,8 +116,5 @@ return {
         -- detached = false,
       },
     }
-    require('dap.ext.vscode').load_launchjs(nil, { cppdbg = { 'c', 'cpp' } })
-
-    require('dap-python').setup '~/.virtualenvs/debugpy/bin/python'
   end,
 }

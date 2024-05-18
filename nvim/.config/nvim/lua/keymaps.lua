@@ -31,38 +31,48 @@ vim.keymap.set('n', '<leader>th', '<cmd>tabprevious<cr>', { desc = 'Previous Tab
 vim.keymap.set({ 'n', 'x' }, '<leader>d', '"_d', { desc = 'delete without overwriting clipboard' })
 vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'paste without overwriting clipboard' })
 
+local function get_spell_namespace()
+  local null = require 'null-ls'
+  local d_null = require 'null-ls.diagnostics'
+  local namespace = nil
+
+  for _, k in pairs(null.get_sources()) do
+    print('k.name', k.name)
+    if k.name == 'cspell' then
+      namespace = d_null.get_namespace(k.id)
+    end
+  end
+
+  return namespace
+end
+
+local function get_all_namespaces_without(namespace_to_ignore)
+  local good_namespaces = {}
+  local index = 1
+  for namespace, _ in pairs(vim.diagnostic.get_namespaces()) do
+    if namespace ~= namespace_to_ignore then
+      good_namespaces[index] = namespace
+      index = index + 1
+    end
+  end
+
+  return good_namespaces
+end
+
 vim.keymap.set('n', '[d', function()
-  vim.diagnostic.goto_prev { severity = { min = vim.diagnostic.severity.WARN } }
+  vim.diagnostic.goto_prev { namespace = get_all_namespaces_without(get_spell_namespace()) }
 end, { desc = 'Go to previous [D]iagnostic message' })
 
 vim.keymap.set('n', ']d', function()
-  vim.diagnostic.goto_next { severity = { min = vim.diagnostic.severity.WARN } }
+  vim.diagnostic.goto_next { namespace = get_all_namespaces_without(get_spell_namespace()) }
 end, { desc = 'Go to next [D]iagnostic message' })
 
 vim.keymap.set('n', '[z', function()
-  -- TODO: cache this mb in spell.lua?
-  local null = require 'null-ls'
-  local d_null = require 'null-ls.diagnostics'
-  local namespace = nil
-  -- TODO: wait for patch to add all the namespaces
-  for v, k in pairs(null.get_sources()) do
-    namespace = d_null.get_namespace(k.id)
-  end
-
-  vim.diagnostic.goto_prev { namespace = namespace }
+  vim.diagnostic.goto_prev { namespace = get_spell_namespace() }
 end, { desc = 'Go to previous [D]iagnostic message' })
 
 vim.keymap.set('n', ']z', function()
-  -- TODO: cache this mb in spell.lua?
-  local null = require 'null-ls'
-  local d_null = require 'null-ls.diagnostics'
-  local namespace = nil
-  -- TODO: wait for patch to add all the namespaces
-  for v, k in pairs(null.get_sources()) do
-    namespace = d_null.get_namespace(k.id)
-  end
-
-  vim.diagnostic.goto_next { namespace = namespace }
+  vim.diagnostic.goto_next { namespace = get_spell_namespace() }
 end, { desc = 'Go to next [D]iagnostic message' })
 
 vim.keymap.set('n', '<leader>f', vim.diagnostic.open_float, { desc = 'Diagnostic Open [F]loat' })

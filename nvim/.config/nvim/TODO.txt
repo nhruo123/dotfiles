@@ -11,10 +11,6 @@ https://vonheikemen.github.io/devlog/tools/how-to-survive-without-multiple-curso
 
 https://github.com/rockerBOO/awesome-neovim?tab=readme-ov-file#lsp
 
-when nvim 0.10 drops (30/4/24):
-- https://dotfyle.com/plugins/theHamsta/nvim-dap-virtual-text
-- inlayHints for rust VERY IMPORTNET 
-
 
 quick fix list, jump list, location list
 
