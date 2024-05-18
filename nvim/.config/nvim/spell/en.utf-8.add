@@ -1,4 +1,5 @@
 keybinds
+nvim
 lamport
 solana
 urlscan
@@ -25,3 +26,5 @@ aiohttp
 cnft
 SIMPLEHASH
 coingeck
+neotest
+keymap
