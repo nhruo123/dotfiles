@@ -24,10 +24,7 @@ return {
     local dapui = require 'dapui'
 
     dapui.setup()
-
     require('nvim-dap-virtual-text').setup()
-    require('dap.ext.vscode').load_launchjs(nil, { cppdbg = { 'c', 'cpp' } })
-    require('dap-python').setup '~/.virtualenvs/debugpy/bin/python'
 
     ---@diagnostic disable-next-line: missing-fields
     require('mason-nvim-dap').setup {
@@ -116,5 +113,8 @@ return {
         -- detached = false,
       },
     }
+
+    require('dap.ext.vscode').load_launchjs(nil, { cppdbg = { 'c', 'cpp' } })
+    require('dap-python').setup '~/.virtualenvs/debugpy/bin/python'
   end,
 }
