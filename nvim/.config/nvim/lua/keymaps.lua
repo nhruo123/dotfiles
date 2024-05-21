@@ -37,7 +37,6 @@ local function get_spell_namespace()
   local namespace = nil
 
   for _, k in pairs(null.get_sources()) do
-    print('k.name', k.name)
     if k.name == 'cspell' then
       namespace = d_null.get_namespace(k.id)
     end

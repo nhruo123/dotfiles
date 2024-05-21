@@ -30,3 +30,5 @@ neotest
 keymap
 cnfts
 pubkeys
+pycache
+keepalive
