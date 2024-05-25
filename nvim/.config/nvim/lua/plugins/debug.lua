@@ -24,7 +24,24 @@ return {
     local dapui = require 'dapui'
 
     dapui.setup()
-    require('nvim-dap-virtual-text').setup()
+    require('nvim-dap-virtual-text').setup {
+      display_callback = function(variable, buf, stackframe, node, options)
+        local too_long_postfix = '...'
+        local max_line_size = vim.api.nvim_win_get_width()
+
+        local display_value = string.gmatch(variable.value:gmatch '[^\r\n]+')()
+
+        if display_value:len() > max_line_size then
+          display_value = display_value:sub(1, max_line_size - too_long_postfix:len()) .. too_long_postfix
+        end
+
+        if options.virt_text_pos == 'inline' then
+          return ' = ' .. display_value
+        else
+          return variable.name .. ' = ' .. display_value
+        end
+      end,
+    }
 
     ---@diagnostic disable-next-line: missing-fields
     require('mason-nvim-dap').setup {
