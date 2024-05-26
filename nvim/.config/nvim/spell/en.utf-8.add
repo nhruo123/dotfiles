@@ -34,3 +34,7 @@ pycache
 keepalive
 mayrom
 stackframe
+fastapi
+sqlalchemy
+offchain
+borsh
