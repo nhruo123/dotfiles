@@ -28,7 +28,7 @@ return {
       clear_on_continue = true,
       display_callback = function(variable, buf, stackframe, node, options)
         local too_long_postfix = '...'
-        local max_line_size = vim.api.nvim_win_get_width()
+        local max_line_size = vim.api.nvim_win_get_width(0)
 
         local display_value = string.gmatch(variable.value:gmatch '[^\r\n]+')()
 
