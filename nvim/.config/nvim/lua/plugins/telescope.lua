@@ -4,46 +4,26 @@ return {
     event = 'VeryLazy',
     branch = '0.1.x',
     dependencies = {
+      'nvim-telescope/telescope-smart-history.nvim',
       'nvim-lua/plenary.nvim',
       { -- If encountering errors, see telescope-fzf-native README for install instructions
         'nvim-telescope/telescope-fzf-native.nvim',
-
-        -- `build` is used to run some command when the plugin is installed/updated.
-        -- This is only run then, not every time Neovim starts up.
         build = 'make',
-
-        -- `cond` is a condition used to determine whether this plugin should be
-        -- installed and loaded.
         cond = function()
           return vim.fn.executable 'make' == 1
         end,
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
-
       -- Useful for getting pretty icons, but requires special font.
       --  If you already have a Nerd Font, or terminal set up with fallback fonts
       --  you can enable this
-      { 'nvim-tree/nvim-web-devicons' },
+
+      'kkharji/sqlite.lua',
+      'nvim-telescope/telescope-fzy-native.nvim',
+      'nvim-tree/nvim-web-devicons',
+      {},
     },
     config = function()
-      -- local function filenameFirst(_, path)
-      --   local tail = vim.fs.basename(path)
-      --   local parent = vim.fs.dirname(path)
-      --   if parent == '.' then
-      --     return tail
-      --   end
-      --   return string.format('%s\t\t%s', tail, parent)
-      -- end
-      --
-      -- vim.api.nvim_create_autocmd('FileType', {
-      --   pattern = 'TelescopeResults',
-      --   callback = function(ctx)
-      --     vim.api.nvim_buf_call(ctx.buf, function()
-      --       vim.fn.matchadd('TelescopeParent', '\t\t.*$')
-      --       vim.api.nvim_set_hl(0, 'TelescopeParent', { link = 'Comment' })
-      --     end)
-      --   end,
-      -- })
       -- Telescope is a fuzzy finder that comes with a lot of different things that
       -- it can fuzzy find! It's more than just a "file finder", it can search
       -- many different aspects of Neovim, your workspace, LSP, and more!
@@ -70,31 +50,48 @@ return {
         --  All the info you're looking for is in `:help telescope.setup()`
         --
         defaults = {
+          history = {
+            path = '~/.local/share/nvim/databases/telescope_history.sqlite3',
+            limit = 200,
+          },
           mappings = {
-            -- i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-            i = { ["<C-s>"] = require("telescope.actions").select_horizontal },
-            n = { ["<C-s>"] = require("telescope.actions").select_horizontal },
+            i = {
+              ['<C-k>'] = require('telescope.actions').cycle_history_next,
+              ['<C-j>'] = require('telescope.actions').cycle_history_prev,
+              ['<C-s>'] = require('telescope.actions').select_horizontal,
+              ['<C-space>'] = require('telescope.actions').to_fuzzy_refine,
+            },
+            n = {
+              ['<C-s>'] = require('telescope.actions').select_horizontal,
+              ['<C-k>'] = require('telescope.actions').cycle_history_next,
+              ['<C-j>'] = require('telescope.actions').cycle_history_prev,
+            },
           },
         },
-        -- pickers = {}
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
+          history = {
+            path = '~/.local/share/nvim/databases/telescope_history.sqlite3',
+            limit = 200,
+          },
         },
         pickers = {
-          -- find_files = {
-          --   path_display = filenameFirst,
-          -- },
-          -- git_files = {
-          --   path_display = filenameFirst,
-          -- },
-          -- oldfiles = {
-          --   path_display = filenameFirst,
-          -- },
+          oldfiles = {
+            sort_lastused = true,
+          },
         },
       }
+      -- Enable telescope extensions, if they are installed
+      pcall(require('telescope').load_extension, 'fzf')
+      pcall(require('telescope').load_extension, 'ui-select')
+      pcall(require('telescope').load_extension, 'smart_history')
+      pcall(require('telescope').load_extension, 'live_grep_args')
+
       local builtin = require 'telescope.builtin'
+
+      vim.keymap.set('n', '<c-p>', builtin.find_files, { desc = 'Search files' })
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
@@ -114,10 +111,6 @@ return {
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
-
-      -- Enable telescope extensions, if they are installed
-      pcall(require('telescope').load_extension, 'fzf')
-      pcall(require('telescope').load_extension, 'ui-select')
     end,
   },
 }

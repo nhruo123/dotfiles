@@ -33,3 +33,7 @@ https://github.com/search?q=repo%3Aaskfiy%2FSimpleNvim+spell&type=code
 
 
 NEOGIT TELESCOPE AND :e call after edits
+
+
+get filter by file to telescope
+https://github.com/JoosepAlviste/dotfiles/blob/0b8517aea71e0791bc1c22df8786e7dda4f2d539/config/nvim/lua/j/plugins/telescope.lua#L2

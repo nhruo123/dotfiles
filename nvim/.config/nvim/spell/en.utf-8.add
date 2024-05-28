@@ -38,3 +38,4 @@ fastapi
 sqlalchemy
 offchain
 borsh
+helius
