@@ -37,3 +37,6 @@ NEOGIT TELESCOPE AND :e call after edits
 
 get filter by file to telescope
 https://github.com/JoosepAlviste/dotfiles/blob/0b8517aea71e0791bc1c22df8786e7dda4f2d539/config/nvim/lua/j/plugins/telescope.lua#L2
+
+https://github.com/tjdevries/config.nvim/blob/46eeb5887442f468adc20766290b9694c511165d/lua/custom/plugins/quickfix.lua#L4
+https://github.com/stevearc/qf_helper.nvim
