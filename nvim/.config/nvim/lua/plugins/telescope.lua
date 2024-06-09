@@ -51,7 +51,7 @@ return {
         --
         defaults = {
           history = {
-            path = '~/.local/share/nvim/databases/telescope_history.sqlite3',
+            path = vim.fn.stdpath("data") .. '/telescope_history.sqlite3',
             limit = 200,
           },
           mappings = {
