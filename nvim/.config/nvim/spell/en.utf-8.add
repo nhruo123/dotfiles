@@ -39,3 +39,4 @@ sqlalchemy
 offchain
 borsh
 helius
+OTEL

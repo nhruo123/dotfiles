@@ -81,6 +81,12 @@ return {
           oldfiles = {
             sort_lastused = true,
           },
+          live_grep = {
+            file_ignore_patterns = { 'node_modules', '.git', '.venv' },
+            additional_args = function(_)
+              return { '--hidden' }
+            end,
+          },
         },
       }
       -- Enable telescope extensions, if they are installed
@@ -102,7 +108,7 @@ return {
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Find existing buffers' })
       vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = '[/] Fuzzily search in current buffer' })
       vim.keymap.set('n', '<leader>so', function()
-        builtin.oldfiles { only_cwd = true }
+        builtin.oldfiles { only_cwd = true, sort_lastused = true }
       end, { desc = '[S]earch cwd [O]ld Files' })
       vim.keymap.set('n', '<leader>sO', builtin.oldfiles, { desc = '[S]earch all [O]ld Files' })
       vim.keymap.set('n', '<leader>st', '<cmd>:TodoTelescope<cr>', { desc = '[S]earch Todo' })

@@ -42,8 +42,6 @@ https://github.com/tjdevries/config.nvim/blob/46eeb5887442f468adc20766290b9694c5
 https://github.com/stevearc/qf_helper.nvim
 
 
-telescope live grep with hidden files
-
 
 FIX dap repl
 https://github.com/mfussenegger/nvim-dap/blob/abb238f631609ea4be496ba7946f4f3aaec86c6a/lua/dap/repl.lua#L353
