@@ -66,9 +66,10 @@ return {
         omnisharp = {
           settings = {
             cmd = { 'dotnet', vim.fn.stdpath 'data' .. '/mason/packages/omnisharp/libexec/OmniSharp.dll' },
+            enable_ms_build_load_projects_on_demand = false,
+            enable_editorconfig_support = true,
             enable_import_completion = true,
             enable_roslyn_analyzers = true,
-            enable_editorconfig_support = true,
           },
         },
         --
@@ -241,7 +242,6 @@ return {
               callback = vim.lsp.buf.clear_references,
             })
           end
-
 
           vim.lsp.inlay_hint.enable(true)
         end,

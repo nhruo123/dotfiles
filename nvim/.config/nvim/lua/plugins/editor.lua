@@ -93,4 +93,45 @@ return {
     opts = {},
     keys = { { '<leader>F', '<cmd>lua require("spectre").toggle()<CR>', desc = '[F]ind and Replace' } },
   },
+  {
+    'nvim-lualine/lualine.nvim',
+    opts = {
+      options = {
+        theme = 'auto',
+      },
+    },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+  },
+  'tpope/vim-abolish',
+  { -- Collection of various small independent plugins/modules
+    'echasnovski/mini.nvim',
+    config = function()
+      -- Better Around/Inside textobjects
+      --
+      -- Examples:
+      --  - va)  - [V]isually select [A]round [)]parenthen
+      --  - yinq - [Y]ank [I]nside [N]ext [']quote
+      --  - ci'  - [C]hange [I]nside [']quote
+      require('mini.ai').setup { n_lines = 500 }
+
+      -- require('mini.files').setup()
+      -- vim.keymap.set('n', '<leader>e', function()
+      --   require('mini.files').open(vim.api.nvim_buf_get_name(0))
+      -- end, { desc = 'Open File Tree Relative To File' })
+      -- vim.keymap.set('n', '<leader>E', require('mini.files').open, { desc = 'Open File Tree In cwd' })
+
+      -- ... and there is more!
+      --  Check out: https://github.com/echasnovski/mini.nvim
+    end,
+  },
+  {
+    'kylechui/nvim-surround',
+    version = '*', -- Use for stability; omit to use `main` branch for the latest features
+    event = 'VeryLazy',
+    config = function()
+      require('nvim-surround').setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
+  },
 }
