@@ -112,6 +112,7 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format lua code
+        'sql-formatter',
         { 'black', version = '24.2.0' },
         { 'isort', version = '5.13.2' },
         { 'pylint', version = '3.1.0' },
