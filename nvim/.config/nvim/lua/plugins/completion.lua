@@ -47,9 +47,9 @@ return { -- Autocompletion
         format = lspkind.cmp_format {
           mode = 'symbol_text',
           menu = {
-            buffer = '[Buffer]',
             nvim_lsp = '[LSP]',
             luasnip = '[LuaSnip]',
+            buffer = '[Buffer]',
             nvim_lua = '[Lua]',
             latex_symbols = '[Latex]',
           },
@@ -100,7 +100,7 @@ return { -- Autocompletion
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
-        -- { name = 'buffer' },
+        { name = 'buffer' },
       },
 
       enabled = function()
