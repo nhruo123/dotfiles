@@ -25,6 +25,11 @@ return {
       end
       return { timeout_ms = 500, lsp_format = 'fallback' }
     end,
+    formatters = {
+      sql_formatter = {
+        prepend_args = { '-c', vim.fn.stdpath 'config' .. '/external_config/sql-formatter.json' },
+      },
+    },
   },
   init = function()
     vim.api.nvim_create_user_command('FormatDisable', function(args)
