@@ -113,6 +113,9 @@ return {
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format lua code
         'sql-formatter',
+        'prettier',
+        'prettierd',
+        'eslint_d',
         { 'black', version = '24.2.0' },
         { 'isort', version = '5.13.2' },
         { 'pylint', version = '3.1.0' },

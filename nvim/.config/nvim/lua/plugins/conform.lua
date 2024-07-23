@@ -12,10 +12,15 @@ return {
     },
   },
   opts = {
+    notify_on_error = false,
     formatters_by_ft = {
       lua = { 'stylua' },
       python = { 'black', 'isort' },
       rust = { 'rustfmt' },
+      typescript = { 'prettierd', 'prettier', 'eslint_d' },
+      typescriptreact = { 'prettierd', 'prettier', 'eslint_d' },
+      javascript = { 'prettierd', 'prettier', 'eslint_d' },
+      javascriptreact = { 'prettierd', 'prettier', 'eslint_d' },
       sql = { 'sql_formatter' },
     },
     format_on_save = function(bufnr)
