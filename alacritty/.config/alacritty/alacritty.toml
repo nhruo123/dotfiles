@@ -3,7 +3,7 @@ import = [
 ]
 
 [font]
-size = 14
+size = 11
 
 [selection]
 save_to_clipboard = true
