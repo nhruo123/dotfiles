@@ -113,10 +113,11 @@ alias vi='nvim'
 source "$HOME/.cargo/env"
 alias yy='yazi'
 # feel free to add stuff to the alias file for example
-# alias proj='cd $(ls -d /mnt/d/projects/* | fzf)'
 if [ -f ~/.zsh-dev-alias.sh ]; then
 	source ~/.zsh-dev-alias.sh
 fi
+# alias dev='cd $(ls -d /mnt/d/projects/* | fzf)'
+alias venv='source $(ls -d ~/py-envs/* | fzf)/bin/activate';
 
 # export TERM="xterm-256color"
 # [[ -n $TMUX ]] && export TERM="screen-256color"
