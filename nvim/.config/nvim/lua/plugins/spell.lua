@@ -20,7 +20,6 @@ return {
             config = config,
           },
           c_spell.diagnostics.with {
-            name = 'c_spell_diagnostics',
             config = config,
             -- Force the severity to be HINT
             diagnostic_config = {
@@ -38,7 +37,7 @@ return {
       local function get_spell_namespace()
         local null = require 'null-ls'
         local d_null = require 'null-ls.diagnostics'
-        return d_null.get_namespace((null.get_source { name = 'c_spell_diagnostics' })[1].id)
+        return d_null.get_namespace((null.get_source { name = 'cspell' })[2].id)
       end
 
       local function get_all_namespaces_without(namespace_to_ignore)
