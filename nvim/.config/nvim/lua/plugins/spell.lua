@@ -20,6 +20,7 @@ return {
             config = config,
           },
           c_spell.diagnostics.with {
+            name = 'c_spell_diagnostics',
             config = config,
             -- Force the severity to be HINT
             diagnostic_config = {
@@ -34,6 +35,40 @@ return {
           },
         },
       }
+      local function get_spell_namespace()
+        local null = require 'null-ls'
+        local d_null = require 'null-ls.diagnostics'
+        return d_null.get_namespace((null.get_source { name = 'c_spell_diagnostics' })[1].id)
+      end
+
+      local function get_all_namespaces_without(namespace_to_ignore)
+        local good_namespaces = {}
+        local index = 1
+        for namespace, _ in pairs(vim.diagnostic.get_namespaces()) do
+          if namespace ~= namespace_to_ignore then
+            good_namespaces[index] = namespace
+            index = index + 1
+          end
+        end
+
+        return good_namespaces
+      end
+
+      vim.keymap.set('n', '[d', function()
+        vim.diagnostic.goto_prev { namespace = get_all_namespaces_without(get_spell_namespace()) }
+      end, { desc = 'Go to previous [D]iagnostic message' })
+
+      vim.keymap.set('n', ']d', function()
+        vim.diagnostic.goto_next { namespace = get_all_namespaces_without(get_spell_namespace()) }
+      end, { desc = 'Go to next [D]iagnostic message' })
+
+      vim.keymap.set('n', '[z', function()
+        vim.diagnostic.goto_prev { namespace = get_spell_namespace() }
+      end, { desc = 'Go to previous [D]iagnostic message' })
+
+      vim.keymap.set('n', ']z', function()
+        vim.diagnostic.goto_next { namespace = get_spell_namespace() }
+      end, { desc = 'Go to next [D]iagnostic message' })
     end,
   },
 }

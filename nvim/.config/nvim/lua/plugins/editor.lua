@@ -4,7 +4,27 @@ return {
 
   -- TODO: fix indent level not following tabs
   { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = { indent = { char = '│' }, scope = { show_start = false, show_end = false } } },
-  { 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  {
+    'folke/todo-comments.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = { signs = false },
+    keys = {
+      {
+        ']t',
+        function()
+          require('todo-comments').jump_next()
+        end,
+        desc = 'Next todo comment',
+      },
+      {
+        '[t',
+        function()
+          require('todo-comments').jump_prev()
+        end,
+        desc = 'Previous todo comment',
+      },
+    },
+  },
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
   -- keys can be used to configure plugin behavior/loading/etc.
@@ -57,15 +77,23 @@ return {
       require('which-key').setup()
 
       -- Document existing key chains
-      require('which-key').register {
-        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-        ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-        ['<leader>x'] = { name = 'Diagnostics', _ = 'which_key_ignore' },
-        ['<leader>j'] = { name = '[J]ump List', _ = 'which_key_ignore' },
-        ['<leader>b'] = { name = 'De[B]ug', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = '[R]un Tests', _ = 'which_key_ignore' },
+      require('which-key').add {
+        { '<leader>c', group = 'Code' },
+        { '<leader>s', group = 'Search' },
+        { '<leader>j', group = 'Diagnostics' },
+        { '<leader>b', group = 'DeBug' },
+        { '<leader>r', group = 'Run Tests' },
       }
     end,
+    keys = {
+      {
+        '<leader>?',
+        function()
+          require('which-key').show { global = false }
+        end,
+        desc = 'Buffer Local Keymaps (which-key)',
+      },
+    },
   },
 
   -- NOTE: Plugins can specify dependencies.
