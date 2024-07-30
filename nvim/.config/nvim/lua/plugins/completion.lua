@@ -46,6 +46,10 @@ return { -- Autocompletion
       formatting = {
         format = lspkind.cmp_format {
           mode = 'symbol_text',
+          maxwidth = function()
+            return math.floor(0.45 * vim.o.columns)
+          end,
+          ellipsis_char = '...',
           menu = {
             nvim_lsp = '[LSP]',
             luasnip = '[LuaSnip]',
@@ -56,7 +60,6 @@ return { -- Autocompletion
         },
       },
       completion = { completeopt = 'menu,menuone,noinsert' },
-
       -- For an understanding of why these mappings were
       -- chosen, you will need to read `:help ins-completion`
       --
