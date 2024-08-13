@@ -30,7 +30,7 @@ return {
         local too_long_postfix = '...'
         local max_line_size = vim.api.nvim_win_get_width(0)
 
-        local display_value = variable.value:gmatch('[^\r\n]+')()
+        local display_value = variable.value:gmatch '[^\r\n]+'()
 
         if display_value:len() > max_line_size then
           display_value = display_value:sub(1, max_line_size - too_long_postfix:len()) .. too_long_postfix
@@ -82,7 +82,7 @@ return {
       require('dap').run_last()
     end, { desc = 'run last config' })
 
-    vim.keymap.set('n', '<leader>be', dapui.eval, { desc = 'eval' })
+    vim.keymap.set({ 'n', 'v' }, '<leader>be', dapui.eval, { desc = 'eval' })
     vim.keymap.set('n', '<leader>bE', function()
       dapui.eval(vim.fn.input '[DAP] Expression > ')
     end, { desc = 'Eval with expression' })

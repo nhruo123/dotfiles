@@ -7,6 +7,7 @@ return {
   {
     'folke/todo-comments.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
+    lazy = false,
     opts = { signs = false },
     keys = {
       {
@@ -52,9 +53,43 @@ return {
         topdelete = { text = '▌' },
         changedelete = { text = '▌' },
       },
+      on_attach = function(bufnr)
+        local gitsigns = require 'gitsigns'
+
+        local function map(mode, l, r, opts)
+          opts = opts or {}
+          opts.buffer = bufnr
+          vim.keymap.set(mode, l, r, opts)
+        end
+
+        -- Navigation
+        map('n', ']c', function()
+          if vim.wo.diff then
+            vim.cmd.normal { ']c', bang = true }
+          else
+            gitsigns.nav_hunk 'next'
+          end
+        end, { desc = 'Go to next Change' })
+
+        map('n', '[c', function()
+          if vim.wo.diff then
+            vim.cmd.normal { '[c', bang = true }
+          else
+            gitsigns.nav_hunk 'prev'
+          end
+        end, { desc = 'Go to prev Change' })
+
+        -- Actions
+        map('n', '<leader>hb', function()
+          gitsigns.blame_line { full = true }
+        end, { desc = 'Open Hunk Blame' })
+        map('n', '<leader>hd', gitsigns.diffthis, { desc = 'Diff this file' })
+
+        -- Text object
+        map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'Hunk Selector' })
+      end,
     },
   },
-
   -- NOTE: Plugins can also be configured to run lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
