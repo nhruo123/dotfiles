@@ -60,6 +60,7 @@ return {
             },
           },
         },
+        terraformls = {},
         cspell = {},
         omnisharp = {
           settings = {
@@ -114,10 +115,10 @@ return {
         'prettier',
         'prettierd',
         'eslint_d',
-        { 'black', version = '24.2.0' },
-        { 'isort', version = '5.13.2' },
-        { 'pylint', version = '3.1.0' },
-        { 'mypy', version = '1.8.0' },
+        { 'black' },
+        { 'isort' },
+        { 'pylint' },
+        { 'mypy' },
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
