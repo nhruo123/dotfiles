@@ -104,7 +104,10 @@ return {
       --    :Mason
       --
       --  You can press `g?` for help in this menu
-      require('mason').setup()
+      require('mason').setup {
+        -- NOTE: I turned this on for python venv, if I see that this breaks other formatters I will turn it off
+        PATH = 'append',
+      }
 
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
