@@ -4,6 +4,7 @@ return { -- Autocompletion
   dependencies = {
     -- Snippet Engine & its associated nvim-cmp source
     'onsails/lspkind.nvim',
+    'lukas-reineke/cmp-under-comparator',
     {
       'L3MON4D3/LuaSnip',
       build = (function()
@@ -104,6 +105,16 @@ return { -- Autocompletion
         { name = 'luasnip' },
         { name = 'path' },
         { name = 'buffer' },
+      },
+      sorting = {
+        comparators = {
+          cmp.config.compare.offset,
+          cmp.config.compare.exact,
+          cmp.config.compare.score,
+          cmp.config.compare.recently_used,
+          require('cmp-under-comparator').under,
+          cmp.config.compare.kind,
+        },
       },
 
       enabled = function()

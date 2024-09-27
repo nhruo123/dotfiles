@@ -50,9 +50,7 @@ return {
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
         --    https://github.com/pmizio/typescript-tools.nvim
-        --
-        -- But for many setups, the LSP (`tsserver`) will work just fine
-        tsserver = {},
+        ts_ls = {},
         svelte = {
           capabilities = {
             workspace = {
@@ -62,6 +60,7 @@ return {
             },
           },
         },
+        terraformls = {},
         cspell = {},
         omnisharp = {
           settings = {
@@ -105,7 +104,10 @@ return {
       --    :Mason
       --
       --  You can press `g?` for help in this menu
-      require('mason').setup()
+      require('mason').setup {
+        -- NOTE: I turned this on for python venv, if I see that this breaks other formatters I will turn it off
+        PATH = 'append',
+      }
 
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
@@ -116,10 +118,10 @@ return {
         'prettier',
         'prettierd',
         'eslint_d',
-        { 'black', version = '24.2.0' },
-        { 'isort', version = '5.13.2' },
-        { 'pylint', version = '3.1.0' },
-        { 'mypy', version = '1.8.0' },
+        { 'black' },
+        { 'isort' },
+        { 'pylint' },
+        { 'mypy' },
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
