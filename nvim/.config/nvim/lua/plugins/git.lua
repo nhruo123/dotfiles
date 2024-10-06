@@ -5,6 +5,16 @@ return {
     'sindrets/diffview.nvim',
     opts = {
       enhanced_diff_hl = true,
+      view = {
+        default = {
+          layout = 'diff2_horizontal',
+        },
+        merge_tool = {
+          layout = 'diff3_mixed',
+          disable_diagnostics = true,
+          winbar_info = true,
+        },
+      },
       keymaps = {
         view = {
           close_map,
