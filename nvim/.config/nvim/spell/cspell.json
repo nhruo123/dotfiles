@@ -6,8 +6,13 @@
       "name": "global dict",
       "path": "en.utf-8.add",
       "addWords": true
+    },
+    {
+      "name": "work dict",
+      "path": "work.en.utf-8.add",
+      "addWords": true
     }
   ],
-  "dictionaries": ["global dict"],
-  "ignorePaths": ["en.utf-8.add"]
+  "dictionaries": ["global dict", "work dict"],
+  "ignorePaths": ["en.utf-8.add", "work.en.utf-8.add"]
 }

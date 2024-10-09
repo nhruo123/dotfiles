@@ -74,6 +74,7 @@ ZSH_THEME="agnoster"
 plugins=(
 	git
 	z
+	kubectl
 	zsh-autosuggestions
 	zsh-syntax-highlighting
 )
