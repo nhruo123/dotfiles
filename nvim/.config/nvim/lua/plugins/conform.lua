@@ -22,8 +22,14 @@ return {
       javascript = { 'prettierd', 'prettier', 'eslint_d' },
       javascriptreact = { 'prettierd', 'prettier', 'eslint_d' },
       sql = { 'sql_formatter' },
+      json = { 'jq' },
     },
     format_on_save = function(bufnr)
+      local disable_format_on_save_ft = { 'json' }
+
+      if vim.bo[bufnr].filetype == 'json' then
+        return
+      end
       -- Disable with a global or buffer-local variable
       if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
         return
