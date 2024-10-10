@@ -48,6 +48,10 @@ return {
           diffview = true,
           telescope = true,
         },
+        commit_editor = {
+          spell_check = false,
+          kind = 'tab',
+        },
       }
     end,
 
