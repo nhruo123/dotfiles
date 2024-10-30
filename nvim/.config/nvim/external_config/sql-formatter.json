@@ -2,5 +2,5 @@
   "keywordCase": "upper",
   "dataTypeCase": "upper",
   "functionCase": "upper",
-  "dialect ": "postgresql"
+  "dialect": "postgresql"
 }

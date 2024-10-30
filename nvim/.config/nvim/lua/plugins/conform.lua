@@ -21,15 +21,17 @@ return {
       typescriptreact = { 'prettierd', 'prettier', 'eslint_d' },
       javascript = { 'prettierd', 'prettier', 'eslint_d' },
       javascriptreact = { 'prettierd', 'prettier', 'eslint_d' },
+      terraform = { 'terraform_fmt' },
       sql = { 'sql_formatter' },
       json = { 'jq' },
     },
     format_on_save = function(bufnr)
-      local disable_format_on_save_ft = { 'json' }
+      local disable_format_on_save_ft = { json = true }
 
-      if vim.bo[bufnr].filetype == 'json' then
+      if disable_format_on_save_ft[vim.bo[bufnr].filetype] then
         return
       end
+
       -- Disable with a global or buffer-local variable
       if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
         return
