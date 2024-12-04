@@ -81,6 +81,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source /etc/environment
+source <(fzf --zsh)
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
