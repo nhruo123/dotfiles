@@ -51,7 +51,7 @@ return {
         --
         defaults = {
           history = {
-            path = vim.fn.stdpath("data") .. '/telescope_history.sqlite3',
+            path = vim.fn.stdpath 'data' .. '/telescope_history.sqlite3',
             limit = 200,
           },
           mappings = {
@@ -80,6 +80,9 @@ return {
         pickers = {
           oldfiles = {
             sort_lastused = true,
+          },
+          colorscheme = {
+            enable_preview = true,
           },
           live_grep = {
             file_ignore_patterns = { 'node_modules', '.git', '.venv' },
