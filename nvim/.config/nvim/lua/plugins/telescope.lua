@@ -85,7 +85,13 @@ return {
             enable_preview = true,
           },
           live_grep = {
-            file_ignore_patterns = { 'node_modules', '.git', '.venv' },
+            file_ignore_patterns = { 'node_modules', '.git/', '.venv' },
+            additional_args = function(_)
+              return { '--hidden' }
+            end,
+          },
+          grep_string = {
+            file_ignore_patterns = { 'node_modules', '.git/', '.venv' },
             additional_args = function(_)
               return { '--hidden' }
             end,
