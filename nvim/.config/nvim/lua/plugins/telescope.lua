@@ -76,6 +76,7 @@ return {
             path = '~/.local/share/nvim/databases/telescope_history.sqlite3',
             limit = 200,
           },
+          fzf = {},
         },
         pickers = {
           oldfiles = {
