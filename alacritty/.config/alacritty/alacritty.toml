@@ -17,7 +17,15 @@ bindings = [
     {key = "0", mods = "Control", action = "ResetFontSize"},
     {key = "Back", mods = "Control", chars = "\u0017"},
     {key = "Enter", mods = "Command", action = "ToggleFullscreen"},
-] 
+
+    {key = "j", mods = "Command", chars = "\u001Bj"},
+    {key = "k", mods = "Command", chars = "\u001Bk"},
+
+    {key = ",", mods = "Command", chars = "\u001B,"},
+    {key = ".", mods = "Command", chars = "\u001B."},
+    {key = "t", mods = "Command", chars = "\u001Bt"},
+    {key = "s", mods = "Command", chars = "\u001Bs"},
+]
 
 [font.bold]
 family = "JetBrainsMono Nerd Font Mono"
