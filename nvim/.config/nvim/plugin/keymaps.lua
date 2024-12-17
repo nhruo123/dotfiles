@@ -11,8 +11,8 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Quick fix movement
-vim.keymap.set('n', '<M-j>', '<cmd>cprev<CR>', { desc = 'Move down in quick fix list item' })
-vim.keymap.set('n', '<M-k>', '<cmd>cnext<CR>', { desc = 'Move up in quick fix list item' })
+vim.keymap.set('n', '<M-j>', '<cmd>cnext<CR>', { desc = 'Move down in quick fix list item' })
+vim.keymap.set('n', '<M-k>', '<cmd>cprev<CR>', { desc = 'Move up in quick fix list item' })
 
 -- center view after jump
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
