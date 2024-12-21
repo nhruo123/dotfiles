@@ -96,6 +96,7 @@ local glob_grep = function(opts)
       return utils.flatten { args, '--glob', glob, '--', previous_prompt, search_dirs }
     end
   end, make_entry.gen_from_vimgrep(opts), opts.max_results, opts.cwd)
+
   local custom_sorter = function()
     local fzy = require 'telescope.algos.fzy'
 
@@ -109,6 +110,7 @@ local glob_grep = function(opts)
       end,
     }
   end
+
   pickers
     .new(opts, {
       prompt_title = 'Live Grep',
