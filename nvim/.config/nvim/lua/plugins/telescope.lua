@@ -88,12 +88,6 @@ return {
           colorscheme = {
             enable_preview = true,
           },
-          live_grep = {
-            file_ignore_patterns = { 'node_modules', '.git/', '.venv' },
-            additional_args = function(_)
-              return { '--hidden' }
-            end,
-          },
           grep_string = {
             file_ignore_patterns = { 'node_modules', '**/.git/**', '.venv' },
             additional_args = function(_)
@@ -106,7 +100,6 @@ return {
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
       pcall(require('telescope').load_extension, 'smart_history')
-      -- pcall(require('telescope').load_extension, 'live_grep_args')
 
       local builtin = require 'telescope.builtin'
 
@@ -125,7 +118,14 @@ return {
       end, { desc = '[S]earch cwd [O]ld Files' })
       vim.keymap.set('n', '<leader>sO', builtin.oldfiles, { desc = '[S]earch all [O]ld Files' })
       vim.keymap.set('n', '<leader>st', '<cmd>:TodoTelescope<cr>', { desc = '[S]earch Todo' })
-      vim.keymap.set('n', '<leader>s/', require 'custom.telescope.glob_grep', { desc = '[S]earch [/] in Open Files' })
+      vim.keymap.set('n', '<leader>s/', function()
+        require 'custom.telescope.glob_grep' {
+          file_ignore_patterns = { 'node_modules', '**/.git/**', '.venv' },
+          additional_args = function(_)
+            return { '--hidden' }
+          end,
+        }
+      end, { desc = '[S]earch [/] in Open Files' })
       vim.keymap.set('n', '<leader>:', builtin.commands, { desc = '[:] commands' })
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
