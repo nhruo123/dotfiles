@@ -77,6 +77,7 @@ plugins=(
 	kubectl
 	zsh-autosuggestions
 	zsh-syntax-highlighting
+	fzf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -84,7 +85,7 @@ source /etc/environment
 
 # User configuration
 
-source <(fzf --zsh)
+# source <(fzf --zsh)
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
@@ -124,10 +125,12 @@ source "$HOME/.cargo/env"
 alias yy='yazi'
 # feel free to add stuff to the alias file for example
 if [ -f ~/.zsh-dev-alias.sh ]; then
-	source ~/.zsh-dev-alias.sh
+	source ~/.config/zsh/zsh-dev-alias.sh
 fi
 # alias dev='cd $(ls -d /mnt/d/projects/* | fzf)'
 alias venv='source $(ls -d ~/py-envs/* | fzf)/bin/activate';
+
+source ~/.config/zsh/fzf-git.sh
 
 # export TERM="xterm-256color"
 # [[ -n $TMUX ]] && export TERM="screen-256color"
