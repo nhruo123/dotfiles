@@ -4,7 +4,6 @@ return {
     event = 'VeryLazy',
     dependencies = {
       'nvim-telescope/telescope-smart-history.nvim',
-      -- 'nvim-telescope/telescope-live-grep-args.nvim',
       'nvim-lua/plenary.nvim',
       { -- If encountering errors, see telescope-fzf-native README for install instructions
         'nvim-telescope/telescope-fzf-native.nvim',
@@ -53,7 +52,7 @@ return {
           path_display = {
             'filename_first',
           },
-          file_ignore_patterns = { 'node_modules', './^.git/*', '.venv' },
+          file_ignore_patterns = { 'node_modules', '**/.git/**', '.venv' },
           history = {
             path = vim.fn.stdpath 'data' .. '/telescope_history.sqlite3',
             limit = 200,
@@ -90,11 +89,13 @@ return {
             enable_preview = true,
           },
           live_grep = {
+            file_ignore_patterns = { 'node_modules', '.git/', '.venv' },
             additional_args = function(_)
               return { '--hidden' }
             end,
           },
           grep_string = {
+            file_ignore_patterns = { 'node_modules', '**/.git/**', '.venv' },
             additional_args = function(_)
               return { '--hidden' }
             end,
