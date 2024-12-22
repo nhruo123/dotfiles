@@ -52,7 +52,6 @@ return {
           path_display = {
             'filename_first',
           },
-          file_ignore_patterns = { 'node_modules', '**/.git/**', '.venv' },
           history = {
             path = vim.fn.stdpath 'data' .. '/telescope_history.sqlite3',
             limit = 200,
@@ -89,7 +88,6 @@ return {
             enable_preview = true,
           },
           grep_string = {
-            file_ignore_patterns = { 'node_modules', '**/.git/**', '.venv' },
             additional_args = function(_)
               return { '--hidden' }
             end,
@@ -106,7 +104,13 @@ return {
       vim.keymap.set('n', '<c-p>', builtin.find_files, { desc = 'Search files' })
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+
+      vim.keymap.set('n', '<leader>sf', function()
+        require('custom.telescope.custom').project_files { show_untracked = true }
+      end, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>sF', function()
+        builtin.find_files { hidden = true }
+      end, { desc = '[S]earch ALL [F]iles' })
       vim.keymap.set({ 'n', 'x' }, '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.git_files, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
@@ -119,8 +123,8 @@ return {
       vim.keymap.set('n', '<leader>sO', builtin.oldfiles, { desc = '[S]earch all [O]ld Files' })
       vim.keymap.set('n', '<leader>st', '<cmd>:TodoTelescope<cr>', { desc = '[S]earch Todo' })
       vim.keymap.set('n', '<leader>s/', function()
-        require 'custom.telescope.glob_grep' {
-          file_ignore_patterns = { 'node_modules', '**/.git/**', '.venv' },
+        require('custom.telescope.custom').glob_grep {
+          glob_pattern = { '!.git/**' },
           additional_args = function(_)
             return { '--hidden' }
           end,

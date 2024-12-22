@@ -4,6 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
+export KEYTIMEOUT=150
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -81,7 +82,11 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source /etc/environment
+
+
+if [ -f /etc/environment ]; then
+	source /etc/environment
+fi
 
 # User configuration
 
