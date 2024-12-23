@@ -129,7 +129,7 @@ alias vi='nvim'
 source "$HOME/.cargo/env"
 alias yy='yazi'
 # feel free to add stuff to the alias file for example
-if [ -f ~/.zsh-dev-alias.sh ]; then
+if [ -f ~/.config/zsh/zsh-dev-alias.sh ]; then
 	source ~/.config/zsh/zsh-dev-alias.sh
 fi
 # alias dev='cd $(ls -d /mnt/d/projects/* | fzf)'

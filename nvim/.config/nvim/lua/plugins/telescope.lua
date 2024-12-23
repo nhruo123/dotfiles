@@ -106,7 +106,8 @@ return {
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
 
       vim.keymap.set('n', '<leader>sf', function()
-        require('custom.telescope.custom').project_files { show_untracked = true }
+        -- require('custom.telescope.custom').project_files { show_untracked = true }
+        builtin.find_files()
       end, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>sF', function()
         builtin.find_files { hidden = true }
