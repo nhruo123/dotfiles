@@ -84,8 +84,12 @@ return {
           oldfiles = {
             sort_lastused = true,
           },
-          colorscheme = {
-            enable_preview = true,
+          find_files = {
+            file_ignore_patterns = {
+              '^.git/*',
+              '*/.git/*',
+            },
+            hidden = true,
           },
           grep_string = {
             additional_args = function(_)
@@ -106,7 +110,6 @@ return {
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
 
       vim.keymap.set('n', '<leader>sf', function()
-        -- require('custom.telescope.custom').project_files { show_untracked = true }
         builtin.find_files()
       end, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>sF', function()
