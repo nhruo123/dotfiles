@@ -24,13 +24,13 @@ vim.opt.rtp:prepend(lazypath)
 --    :Lazy update
 --
 -- NOTE: Here is where you install your plugins.
-require('lazy').setup({
+require('lazy').setup {
   spec = { import = 'plugins' },
-}, {
+
   change_detection = {
     notify = false,
   },
   defaults = {
     version = '*',
   },
-})
+}
