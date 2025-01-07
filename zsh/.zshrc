@@ -133,6 +133,7 @@ if [ -f ~/.config/zsh/zsh-dev-alias.sh ]; then
 	source ~/.config/zsh/zsh-dev-alias.sh
 fi
 # alias dev='cd $(ls -d /mnt/d/projects/* | fzf)'
+# alias dev='cd /Users/mayrom.rabinovich/dev/$(ls /Users/mayrom.rabinovich/dev | fzf)'
 # alias venv='source $(ls -d ~/py-envs/* | fzf)/bin/activate';
 
 source ~/.config/zsh/fzf-git.sh
