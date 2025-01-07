@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-STOW_FOLDERS="nvim,tmux,zsh,alacritty,bottom"
+STOW_FOLDERS="nvim,tmux,zsh,alacritty,bottom,karabiner"
 DOTFILES=$HOME/dotfiles
 
 pushd $DOTFILES

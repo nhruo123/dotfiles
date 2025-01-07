@@ -24,7 +24,7 @@ bindings = [
     {key = ",", mods = "Command", chars = "\u001B,"},
     {key = ".", mods = "Command", chars = "\u001B."},
     {key = "t", mods = "Command", chars = "\u001Bt"},
-    {key = "s", mods = "Command", chars = "\u001Bs"},
+    {key = "s", mods = "Command", chars = "\u001Bs"}, 
 ]
 
 [font.bold]
