@@ -86,8 +86,10 @@ return {
           },
           find_files = {
             file_ignore_patterns = {
-              '^.git/*',
-              '*/.git/*',
+              '.git/',
+              '.node_modules/',
+              '.venv/',
+              '^.venv/*',
             },
             hidden = true,
           },
@@ -109,9 +111,7 @@ return {
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
 
-      vim.keymap.set('n', '<leader>sf', function()
-        builtin.find_files()
-      end, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>sF', function()
         builtin.find_files { hidden = true }
       end, { desc = '[S]earch ALL [F]iles' })
@@ -128,7 +128,7 @@ return {
       vim.keymap.set('n', '<leader>st', '<cmd>:TodoTelescope<cr>', { desc = '[S]earch Todo' })
       vim.keymap.set('n', '<leader>s/', function()
         require('custom.telescope.custom').glob_grep {
-          glob_pattern = { '!.git/**' },
+          glob_pattern = { '!.git/**', '!.node_modules', '!.venv' },
           additional_args = function(_)
             return { '--hidden' }
           end,
