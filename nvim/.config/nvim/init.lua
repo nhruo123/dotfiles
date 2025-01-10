@@ -31,6 +31,6 @@ require('lazy').setup {
     notify = false,
   },
   defaults = {
-    version = '*',
+    -- version = '*',
   },
 }

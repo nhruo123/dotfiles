@@ -2,6 +2,7 @@ return {
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
     event = 'VeryLazy',
+    branch = '0.1.x',
     dependencies = {
       'nvim-telescope/telescope-smart-history.nvim',
       'nvim-lua/plenary.nvim',
@@ -20,7 +21,6 @@ return {
       'kkharji/sqlite.lua',
       'nvim-telescope/telescope-fzy-native.nvim',
       'nvim-tree/nvim-web-devicons',
-      {},
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
