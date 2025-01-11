@@ -132,7 +132,6 @@ return {
       },
     }
 
-    require('dap.ext.vscode').load_launchjs(nil, { cppdbg = { 'c', 'cpp' } })
     require('dap-python').setup '~/.virtualenvs/debugpy/bin/python'
   end,
 }
