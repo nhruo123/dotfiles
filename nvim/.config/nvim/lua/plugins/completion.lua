@@ -1,3 +1,6 @@
+local default_sources = { 'lsp', 'path', 'snippets', 'buffer' }
+local debug_sources = vim.list_extend(default_sources, { 'dap' })
+
 return {
   {
     'saghen/blink.compat',
@@ -79,7 +82,8 @@ return {
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer', 'dap' },
+        default = default_sources,
+        per_filetype = { ['dap-repl'] = debug_sources, dapui_watches = default_sources, dapui_hover = debug_sources },
         providers = {
           dap = {
             name = 'dap',
