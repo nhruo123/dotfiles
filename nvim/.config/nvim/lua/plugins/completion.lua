@@ -1,5 +1,5 @@
 local default_sources = { 'lsp', 'path', 'snippets', 'buffer' }
-local debug_sources = vim.list_extend(default_sources, { 'dap' })
+local debug_sources = vim.list_extend(vim.deepcopy(default_sources), { 'dap' })
 
 return {
   {
@@ -83,7 +83,7 @@ return {
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
         default = default_sources,
-        per_filetype = { ['dap-repl'] = debug_sources, dapui_watches = default_sources, dapui_hover = debug_sources },
+        per_filetype = { ['dap-repl'] = debug_sources, dapui_watches = debug_sources, dapui_hover = debug_sources },
         providers = {
           dap = {
             name = 'dap',
