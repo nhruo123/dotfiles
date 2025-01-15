@@ -85,13 +85,13 @@ return {
             sort_lastused = true,
           },
           find_files = {
+            hidden = true,
             file_ignore_patterns = {
               '.git/',
               '.node_modules/',
               '.venv/',
               '^.venv/*',
             },
-            hidden = true,
           },
           grep_string = {
             additional_args = function(_)
@@ -113,7 +113,7 @@ return {
 
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>sF', function()
-        builtin.find_files { hidden = true }
+        builtin.find_files { no_ignore = true }
       end, { desc = '[S]earch ALL [F]iles' })
       vim.keymap.set({ 'n', 'x' }, '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.git_files, { desc = '[S]earch by [G]rep' })
