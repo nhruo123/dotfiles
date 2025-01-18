@@ -14,9 +14,9 @@ return {
       { 'j-hui/fidget.nvim', opts = {} },
       'folke/neodev.nvim',
     },
+    lazy = true,
     event = { 'BufReadPost', 'BufNewFile' },
     cmd = { 'LspInfo', 'LspInstall', 'LspUninstall' },
-    lazy = 'VeryLazy',
 
     config = function()
       -- LSP servers and clients are able to communicate to each other what features they support.

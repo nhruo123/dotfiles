@@ -1,13 +1,7 @@
--- debug.lua
---
--- Shows how to use the DAP plugin to debug your code.
---
--- Primarily focused on configuring the debugger for Go, but can
--- be extended to other languages as well. That's why it's called
--- kickstart.nvim and not kitchen-sink.nvim ;)
-
 return {
   'mfussenegger/nvim-dap',
+  lazy = true,
+  event = 'VeryLazy',
   dependencies = {
     {
       'rcarriga/nvim-dap-ui',
@@ -64,11 +58,13 @@ return {
       end,
     },
     'nvim-neotest/nvim-nio',
-    'williamboman/mason.nvim',
     {
       'jay-babu/mason-nvim-dap.nvim',
+      cmd = { 'DapInstall', 'DapUninstall' },
+      dependencies = {
+        'williamboman/mason.nvim',
+      },
       opts = {
-
         -- Makes a best effort to setup the various debuggers with
         -- reasonable debug configurations
         automatic_setup = true,
@@ -112,13 +108,55 @@ return {
     'mfussenegger/nvim-dap-python',
   },
   keys = {
-    { '<F1>', require('dap').step_back, desc = 'Debug: Step Back' },
-    { '<F2>', require('dap').step_into, desc = 'Debug: Step Into' },
-    { '<F3>', require('dap').step_over, desc = 'Debug: Step Over' },
-    { '<F4>', require('dap').step_out, desc = 'Debug: Step Out' },
-    { '<F5>', require('dap').continue, desc = 'Debug: Start/Continue' },
-    { '<leader>br', require('dap').repl.open, desc = 'open repl' },
-    { '<leader>bb', require('dap').toggle_breakpoint, desc = 'Toggle Breakpoint' },
+    {
+      '<F1>',
+      function()
+        require('dap').step_back()
+      end,
+      desc = 'Debug: Step Back',
+    },
+    {
+      '<F2>',
+      function()
+        require('dap').step_into()
+      end,
+      desc = 'Debug: Step Into',
+    },
+    {
+      '<F3>',
+      function()
+        require('dap').step_over()
+      end,
+      desc = 'Debug: Step Over',
+    },
+    {
+      '<F4>',
+      function()
+        require('dap').step_out()
+      end,
+      desc = 'Debug: Step Out',
+    },
+    {
+      '<F5>',
+      function()
+        require('dap').continue()
+      end,
+      desc = 'Debug: Start/Continue',
+    },
+    {
+      '<leader>br',
+      function()
+        require('dap').repl.open()
+      end,
+      desc = 'open repl',
+    },
+    {
+      '<leader>bb',
+      function()
+        require('dap').toggle_breakpoint()
+      end,
+      desc = 'Toggle Breakpoint',
+    },
     {
       '<leader>bB',
       function()
@@ -133,7 +171,13 @@ return {
       end,
       desc = 'run last config',
     },
-    { '<leader>bc', require('dap').run_to_cursor, desc = 'Run to cursor' },
+    {
+      '<leader>bc',
+      function()
+        require('dap').run_to_cursor()
+      end,
+      desc = 'Run to cursor',
+    },
   },
   config = function()
     local dap = require 'dap'

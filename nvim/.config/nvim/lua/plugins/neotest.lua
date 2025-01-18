@@ -7,6 +7,7 @@ return {
     'antoinemadec/FixCursorHold.nvim',
     'nvim-treesitter/nvim-treesitter',
     'nvim-neotest/neotest-python',
+    'mfussenegger/nvim-dap',
   },
   config = function()
     require('neotest').setup {
