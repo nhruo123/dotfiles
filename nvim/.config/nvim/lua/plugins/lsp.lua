@@ -16,7 +16,7 @@ return {
     },
     lazy = true,
     event = { 'BufReadPost', 'BufNewFile' },
-    cmd = { 'LspInfo', 'LspInstall', 'LspUninstall' },
+    cmd = { 'LspInfo', 'LspInstall', 'LspUninstall', 'Mason' },
 
     config = function()
       -- LSP servers and clients are able to communicate to each other what features they support.
