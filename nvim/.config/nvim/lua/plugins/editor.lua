@@ -115,7 +115,7 @@ return {
       require('which-key').add {
         { '<leader>c', group = 'Code' },
         { '<leader>s', group = 'Search' },
-        { '<leader>j', group = 'Diagnostics' },
+        { '<leader>j', group = 'Jump list' },
         { '<leader>b', group = 'DeBug' },
         { '<leader>r', group = 'Run Tests' },
       }

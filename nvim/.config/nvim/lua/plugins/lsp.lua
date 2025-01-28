@@ -109,7 +109,8 @@ return {
       --  You can press `g?` for help in this menu
       require('mason').setup {
         -- NOTE: I turned this on for python venv, if I see that this breaks other formatters I will turn it off
-        PATH = 'append',
+        -- UPDATE, it breaks rust lsp due to conflict with cargo, going to use python formatters from env
+        -- PATH = 'append',
       }
 
       -- You can add other tools here that you want Mason to install
