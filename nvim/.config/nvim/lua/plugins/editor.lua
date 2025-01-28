@@ -114,8 +114,12 @@ return {
       -- Document existing key chains
       require('which-key').add {
         { '<leader>c', group = 'Code' },
+        { '<leader>t', group = 'Tabs' },
         { '<leader>s', group = 'Search' },
-        { '<leader>j', group = 'Jump list' },
+        { '<leader>j', group = 'Jump' },
+        { '<leader>h', group = 'Hunk' },
+        { '<leader>g', group = 'Git' },
+        { '<leader>x', group = 'Diagnostics' },
         { '<leader>b', group = 'DeBug' },
         { '<leader>r', group = 'Run Tests' },
       }

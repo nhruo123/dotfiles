@@ -29,6 +29,7 @@ vim.keymap.set('n', '<leader>th', '<cmd>tabprevious<cr>', { desc = 'Previous Tab
 -- delete without overwriting clipboard
 vim.keymap.set({ 'n', 'x' }, '<leader>d', '"_d', { desc = 'delete without overwriting clipboard' })
 vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'paste without overwriting clipboard' })
+
 -- window resize
 vim.keymap.set('n', '<M-,>', '<c-w>5<')
 vim.keymap.set('n', '<M-.>', '<c-w>5>')
