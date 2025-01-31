@@ -2,7 +2,7 @@ return {
   'stevearc/oil.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   lazy = true,
-  event = 'VeryLazy',
+  cmd = 'Oil',
   opts = {
     default_file_explorer = true,
     keymaps = {
