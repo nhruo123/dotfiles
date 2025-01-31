@@ -14,7 +14,7 @@ return {
       { 'j-hui/fidget.nvim', opts = {} },
       'folke/neodev.nvim',
     },
-    lazy = true,
+    -- lazy = true,
     event = { 'BufReadPost', 'BufNewFile', 'VeryLazy' },
     cmd = { 'LspInfo', 'LspInstall', 'LspUninstall', 'Mason' },
 
