@@ -15,7 +15,7 @@ return {
       'folke/neodev.nvim',
     },
     lazy = true,
-    event = { 'BufReadPost', 'BufNewFile' },
+    event = { 'BufReadPost', 'BufNewFile', 'VeryLazy' },
     cmd = { 'LspInfo', 'LspInstall', 'LspUninstall', 'Mason' },
 
     config = function()
