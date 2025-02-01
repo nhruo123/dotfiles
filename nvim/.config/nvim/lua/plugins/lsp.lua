@@ -25,7 +25,7 @@ return {
     },
     -- lazy = true,
     event = { 'BufReadPost', 'BufNewFile', 'VeryLazy' },
-    cmd = { 'LspInfo', 'LspInstall', 'LspUninstall', 'Mason' },
+    cmd = { 'LspInfo', 'LspInstall', 'LspUninstall' },
 
     config = function()
       -- LSP servers and clients are able to communicate to each other what features they support.
@@ -107,18 +107,6 @@ return {
             },
           },
         },
-      }
-
-      -- Ensure the servers and tools above are installed
-      --  To check the current status of installed tools and/or manually install
-      --  other tools, you can run
-      --    :Mason
-      --
-      --  You can press `g?` for help in this menu
-      require('mason').setup {
-        -- NOTE: I turned this on for python venv, if I see that this breaks other formatters I will turn it off
-        -- UPDATE, it breaks rust lsp due to conflict with cargo, going to use python formatters from env
-        -- PATH = 'append',
       }
 
       -- You can add other tools here that you want Mason to install
