@@ -1,4 +1,4 @@
-local default_sources = { 'lsp', 'path', 'snippets', 'buffer' }
+local default_sources = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' }
 local debug_sources = vim.list_extend(vim.deepcopy(default_sources), { 'dap' })
 
 return {
@@ -91,6 +91,12 @@ return {
             enabled = function()
               return require('cmp_dap').is_dap_buffer()
             end,
+          },
+          lazydev = {
+            name = 'LazyDev',
+            module = 'lazydev.integrations.blink',
+            -- make lazydev completions top priority (see `:h blink.cmp`)
+            score_offset = 100,
           },
         },
       },
