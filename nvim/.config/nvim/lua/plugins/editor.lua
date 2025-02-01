@@ -147,10 +147,16 @@ return {
     config = true,
   },
   {
-    'ggandor/leap.nvim',
-    config = function()
-      require('leap').create_default_mappings()
-    end,
+    'folke/flash.nvim',
+    event = 'VeryLazy',
+    ---@type Flash.Config
+    opts = { modes = { char = { multi_line = false } } },
+    -- stylua: ignore
+    keys = {
+      { "s", mode = { "n", "x" }, function() require("flash").jump() end, desc = "Flash" },
+      { "S", mode = { "n", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    },
   },
   {
     'nvim-pack/nvim-spectre',
