@@ -29,3 +29,5 @@ polymarket
 DEXSCREENER
 bytecodes
 evm
+asyncaio
+sighashes
