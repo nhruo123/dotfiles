@@ -31,3 +31,6 @@ bytecodes
 evm
 asyncaio
 sighashes
+autouse
+ETLS
+Instrumentor

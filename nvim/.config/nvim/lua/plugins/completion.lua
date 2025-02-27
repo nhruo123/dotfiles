@@ -42,11 +42,6 @@ return {
         preset = 'default',
         ['<C-l>'] = { 'snippet_forward', 'fallback' },
         ['<C-h>'] = { 'snippet_backward', 'fallback' },
-        cmdline = {
-          preset = 'default',
-          ['<Tab>'] = { 'show', 'select_next' },
-          ['<S-Tab>'] = { 'show', 'select_prev' },
-        },
       },
       completion = {
         menu = {
