@@ -5,10 +5,10 @@ vim.keymap.set('n', '<C-[>', '<C-[><cmd>nohlsearch<CR>', { desc = 'no serach hig
 vim.keymap.set('n', '<leader>n', '<C-[><cmd>nohlsearch<CR>', { desc = 'no serach highlight' })
 
 -- Keybinds to make split navigation easier.
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+-- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+-- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+-- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Quick fix movement
 vim.keymap.set('n', '<M-j>', '<cmd>cnext<CR>', { desc = 'Move down in quick fix list item' })
