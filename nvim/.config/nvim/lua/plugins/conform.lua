@@ -30,9 +30,10 @@ return {
       terraform = { 'terraform_fmt' },
       sql = { 'sql_formatter' },
       json = { 'jq' },
+      toml = { 'taplo' },
     },
     format_on_save = function(bufnr)
-      local disable_format_on_save_ft = { json = true }
+      local disable_format_on_save_ft = { json = true, toml = true }
 
       if disable_format_on_save_ft[vim.bo[bufnr].filetype] then
         return
