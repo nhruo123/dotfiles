@@ -31,9 +31,6 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
-      enabled = function()
-        return vim.bo.buftype ~= 'prompt' or require('cmp_dap').is_dap_buffer()
-      end,
       -- 'default' for mappings similar to built-in completion
       -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
       -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
