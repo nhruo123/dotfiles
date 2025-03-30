@@ -68,15 +68,13 @@ vim.opt.conceallevel = 0
 
 local icons = require 'utils/icons'
 local signs = {
-  { name = 'DiagnosticSignError', text = icons.diagnostics.Error },
-  { name = 'DiagnosticSignWarn', text = icons.diagnostics.Warn },
-  { name = 'DiagnosticSignHint', text = icons.diagnostics.Hint },
-  { name = 'DiagnosticSignInfo', text = icons.diagnostics.Info },
+  [vim.diagnostic.severity.ERROR] = icons.diagnostics.Error,
+  [vim.diagnostic.severity.WARN] = icons.diagnostics.Warn,
+  [vim.diagnostic.severity.HINT] = icons.diagnostics.Hint,
+  [vim.diagnostic.severity.INFO] = icons.diagnostics.Info,
 }
 
-for _, sign in ipairs(signs) do
-  vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = '' })
-end
+vim.diagnostic.config { signs = { text = signs }, virtual_text = true }
 
 -- [[ Basic Autocommands ]]
 --  See :help lua-guide-autocommands
@@ -88,6 +86,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
   callback = function()
-    vim.highlight.on_yank { timeout = 75 }
+    vim.hl.on_yank { timeout = 75 }
   end,
 })

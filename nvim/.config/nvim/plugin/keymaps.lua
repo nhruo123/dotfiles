@@ -37,3 +37,10 @@ vim.keymap.set('n', '<M-t>', '<C-W>+')
 vim.keymap.set('n', '<M-s>', '<C-W>-')
 
 vim.keymap.set('n', '<leader>f', vim.diagnostic.open_float, { desc = 'Diagnostic Open [F]loat' })
+
+vim.keymap.set('n', '<Leader>l', function()
+  vim.diagnostic.config {
+    virtual_lines = not vim.diagnostic.config().virtual_lines,
+    virtual_text = not vim.diagnostic.config().virtual_text,
+  }
+end, { desc = 'Toggle virtual [L]ines' })

@@ -6,6 +6,7 @@ required programs:
 - zsh-autosuggestions
 - zsh-syntax-highlighting
 - fzf
+- fd
 - neovim ( better to build form sources )
 - tmux
 - [bottom (btm)](https://github.com/ClementTsang/bottom)
