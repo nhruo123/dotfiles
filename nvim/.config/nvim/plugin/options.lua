@@ -74,7 +74,7 @@ local signs = {
   [vim.diagnostic.severity.INFO] = icons.diagnostics.Info,
 }
 
-vim.diagnostic.config { signs = { text = signs }, virtual_text = true }
+vim.diagnostic.config { signs = { text = signs }, virtual_text = true, severity_sort = true }
 
 -- [[ Basic Autocommands ]]
 --  See :help lua-guide-autocommands
