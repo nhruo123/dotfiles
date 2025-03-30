@@ -60,11 +60,12 @@ vim.opt.hlsearch = true
 
 vim.opt.conceallevel = 0
 
--- folding
--- vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
--- vim.o.foldcolumn = '1'
--- vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
--- vim.o.foldenable = true
+vim.opt.foldlevel = 99
+vim.opt.foldcolumn = '1'
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldtext = ''
+vim.opt.foldnestmax = 4
 
 local icons = require 'utils/icons'
 local signs = {
