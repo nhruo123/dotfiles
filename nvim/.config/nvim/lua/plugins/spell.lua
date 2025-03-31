@@ -54,19 +54,19 @@ return {
       end
 
       vim.keymap.set('n', '[d', function()
-        vim.diagnostic.jump { count = -1, namespace = get_all_namespaces_without(get_spell_namespace()) }
+        vim.diagnostic.jump { count = -1, float = true, namespace = get_all_namespaces_without(get_spell_namespace()) }
       end, { desc = 'Go to previous [D]iagnostic message' })
 
       vim.keymap.set('n', ']d', function()
-        vim.diagnostic.jump { count = 1, namespace = get_all_namespaces_without(get_spell_namespace()) }
+        vim.diagnostic.jump { count = 1, float = true, namespace = get_all_namespaces_without(get_spell_namespace()) }
       end, { desc = 'Go to next [D]iagnostic message' })
 
       vim.keymap.set('n', '[z', function()
-        vim.diagnostic.jump { count = -1, namespace = get_spell_namespace() }
+        vim.diagnostic.jump { count = -1, float = true, namespace = get_spell_namespace() }
       end, { desc = 'Go to previous [D]iagnostic message' })
 
       vim.keymap.set('n', ']z', function()
-        vim.diagnostic.jump { count = 1, namespace = get_spell_namespace() }
+        vim.diagnostic.jump { count = 1, float = true, namespace = get_spell_namespace() }
       end, { desc = 'Go to next [D]iagnostic message' })
     end,
   },
